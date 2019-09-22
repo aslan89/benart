@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="benart_parameter_action">
+            <field name="name">Parameter</field>
+            <field name="res_model">benart.parameter</field>
+            <field name="view_mode">tree,form,pivot,graph,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No Parameter yet
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="benart_certificate_action">
+            <field name="name">Certificate</field>
+            <field name="res_model">benart.certificate</field>
+            <field name="view_mode">tree,form,pivot,graph,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No Certificate yet
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="benart_advicer_action">
+            <field name="name">Advicer</field>
+            <field name="res_model">benart.advicer</field>
+            <field name="view_mode">tree,form,pivot,graph,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No Parameter yet
+                </p>
+            </field>
+        </record>
+
+
+        <record id="benart_advicer_tree" model="ir.ui.view">
+            <field name="name">benart.advicer.tree</field>
+            <field name="model">benart.advicer</field>
+            <field name="arch" type="xml">
+                <tree string="Advicer">
+                    <field name="company_name"/>
+                    <field name="authority_first_name"/>
+                    <field name="authority_second_name"/>
+                    <field name="adress"/>
+                    <field name="city"/>
+                    <field name="country"/>
+                    <field name="phone_number"/>
+                    <field name="fax_number"/>
+                    <field name="website"/>
+                    <field name="tax_identity"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_advicer_form" model="ir.ui.view">
+            <field name="name">benart.advicer.form</field>
+            <field name="model">benart.advicer</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_name"/>
+                                <field name="authority_first_name"/>
+                                <field name="authority_second_name"/>
+                                <field name="tax_identity"/>
+                                <field name="phone_number"/>
+                                <field name="fax_number"/>
+
+                            </group>
+                            <group>
+                                <field name="adress"/>
+                                <field name="city"/>
+                                <field name="country"/>
+                                <field name="website"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="benart_parameter_tree" model="ir.ui.view">
+            <field name="name">benart.parameter.tree</field>
+            <field name="model">benart.parameter</field>
+            <field name="arch" type="xml">
+                <tree string="Paramater">
+                    <field name="parameter_name"/>
+                    <field name="paramter_value"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_parameter_form" model="ir.ui.view">
+            <field name="name">benart.parameter.form</field>
+            <field name="model">benart.parameter</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="parameter_name"/>
+                                <field name="paramter_value"/>
+                            </group>
+                            <group>
+                                <field name="is_active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="benart_certificate_tree" model="ir.ui.view">
+            <field name="name">benart.certificate.tree</field>
+            <field name="model">benart.certificate</field>
+            <field name="arch" type="xml">
+                <tree string="Certificate">
+                    <field name="application_date"/>
+                    <field name="certification_body_id"/>
+                    <field name="accreditation_id"/>
+                    <field name="document_type_id"/>
+                    <field name="res_partner_id"/>
+                    <field name="advicer_id"/>
+                    <field name="scope"/>
+                    <field name="certification_number"/>
+                    <field name="certificate_status"/>
+                    <field name="release_date"/>
+                    <field name="validity_date"/>
+                    <field name="validity_status"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_certificate_form" model="ir.ui.view">
+            <field name="name">benart.certificate.form</field>
+            <field name="model">benart.certificate</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="certification_number"/>
+                                <field name="res_partner_id"/>
+                                <field name="application_date"/>
+                                <field name="certification_body_id"/>
+                                <field name="accreditation_id"/>
+                                <field name="document_type_id"/>
+
+                            </group>
+                            <group>
+                                <field name="advicer_id"/>
+                                <field name="scope"/>
+                                <field name="certificate_status"/>
+                                <field name="release_date"/>
+                                <field name="validity_date"/>
+                                <field name="validity_status"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_benart_certification"
+                name="Certification"
+                groups="group_certification_admin"
+                web_icon="odoo_benart_modified,static/description/icon.png"
+                sequence="80"/>
+
+        <menuitem
+                name="Certificates"
+                parent="menu_benart_certification"
+                groups="group_certification_admin"
+                action="benart_certificate_action"
+                id="menu_benart_certification_sub" sequence="2"/>
+
+
+        <menuitem id="menu_benart_configuration"
+                  name="Configuration"
+                  parent="menu_benart_certification"
+                  groups="group_certification_admin"
+                  sequence="100"/>
+
+        <menuitem id="menu_benart_parameter"
+                  name="Parameter"
+                  parent="menu_benart_configuration"
+                  groups="group_certification_admin"
+                  action="benart_parameter_action"
+                  sequence="50"/>
+
+        <menuitem id="menu_benart_advicer"
+                  name="Advicer"
+                  parent="menu_benart_configuration"
+                  groups="group_certification_admin"
+                  action="benart_advicer_action"
+                  sequence="100"/>
+
+        <record id="view_benart_certification_search" model="ir.ui.view">
+            <field name="model">benart.certificate</field>
+            <field name="arch" type="xml">
+                <search string="Certification Description">
+                    <field name="certification_number" filter_domain="[('certification_number','ilike',self)]"
+                           string="Certification Number"/>
+                    <field name="scope" filter_domain="[('scope','ilike',self)]"
+                           string="Scope"/>
+                    <field name="certification_body_id"
+                           filter_domain="[('certification_body_id.paramter_value','ilike',self)]"
+                           string="Certification Body"/>
+                    <field name="accreditation_id"
+                           filter_domain="[('accreditation_id.paramter_value','ilike',self)]"
+                           string="Accreditation"/>
+                    <field name="document_type_id"
+                           filter_domain="[('document_type_id.paramter_value','ilike',self)]"
+                           string="Document Type"/>
+                    <field name="res_partner_id"
+                           filter_domain="[('res_partner_id.name','ilike',self)]"
+                           string="Partner"/>
+                    <field name="advicer_id"
+                           filter_domain="[('advicer_id.company_name','ilike',self)]"
+                           string="Advicer"/>
+                    <separator/>
+                    <filter string="Active " name="certificate_status"
+                            domain="[('certificate_status', '=', 'active')]"/>
+                    <filter string="Passive " name="certificate_status"
+                            domain="[('certificate_status', '=', 'passive')]"/>
+                    <filter string="Cancelled " name="certificate_status"
+                            domain="[('certificate_status', '=', 'canceled')]"/>
+                    <filter string="On Hold " name="certificate_status"
+                            domain="[('certificate_status', '=', 'onhold')]"/>
+
+                    <filter string="Years to Validity Expire" name="validity_status"
+                            domain="[('validity_status', '=', 'Years to Validity Expire')]"/>
+                    <filter string="Months to Validity Expire" name="validity_status"
+                            domain="[('validity_status', '=', 'Months to Validity Expire')]"/>
+                    <filter string="Weeks to Validity Expire" name="validity_status"
+                            domain="[('validity_status', '=', 'Weeks to Validity Expire')]"/>
+                    <filter string="Days to Validity Expire" name="validity_status"
+                            domain="[('validity_status', '=', 'Days to Validity Expire')]"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

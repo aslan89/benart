@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+       <!-- <record id="res_partner_inherit_benart" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.benart</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="fax_number"/>
+                </xpath>
+                 <xpath expr="//field[@name='name']" position="after">
+                    <field name="company_number"/>
+                    <field name="company_city"/>
+                    <field name="sector"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="company_number"/>
+                    <field name="company_city"/>
+                    <field name="sector"/>
+                </xpath>
+            </field>
+        </record>
+-->
+
+    </data>
+</odoo>
