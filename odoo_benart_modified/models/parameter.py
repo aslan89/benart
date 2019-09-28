@@ -14,3 +14,5 @@ class Parameter(models.Model):
 
     paramter_value = fields.Char('Value')
     is_active = fields.Boolean('Is Active?', default=True)
+    file = fields.Binary('File')
+    file_name = fields.Char('File Name')

@@ -116,6 +116,9 @@
                             <group>
                                 <field name="parameter_name"/>
                                 <field name="paramter_value"/>
+                                <field name="file" filename="file_name" attrs="{'required': [('parameter_name','=','document_type')],
+                                                                'invisible': [('parameter_name','!=','document_type')]}"/>
+                                <field name="file_name" invisible="True"/>
                             </group>
                             <group>
                                 <field name="is_active"/>

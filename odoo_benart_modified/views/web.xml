@@ -1,0 +1,137 @@
+<odoo>
+
+    <record id="main_menu_certificate_searching" model="website.menu">
+        <field name="name">Certificate Searching</field>
+        <field name="url">/get_search_certificate</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">11</field>
+    </record>
+
+    <record id="main_menu_documents" model="website.menu">
+        <field name="name">Documents</field>
+        <field name="url">/documents</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">12</field>
+    </record>
+
+    <template id="search_certificate">
+        <t t-call="website.layout">
+            <t t-set="title">Search</t>
+            <script type="text/javascript" src="/odoo_benart_modified/static/src/js/form.js"></script>
+            <div class="oe_structure">
+                <div class="container">
+                    <t t-if="errors">
+                        <div class="w3-col l10 m12 mt-3">
+                            <t t-foreach="errors" t-as="err">
+                                <div class="alert alert-danger">
+                                    <strong>Danger!</strong>
+                                    <t t-esc="err"/>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form id="form_certificate_search" action="/post_search_certificate"
+                                  class="s_website_form container-fluid mt32">
+                                <div class="form-group">
+                                    <label for="certificate_number">Certificate Number:</label>
+                                    <input type="text" class="form-control" placeholder="Enter certificate number."  t-attf-value="{{certificate_number}}"
+                                           name="certificate_number" required=""/>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firm_name">Firm Name:</label>
+                                    <input type="text" class="form-control" placeholder="Enter firm name." t-attf-value="{{firm_name}}"
+                                           name="firm_name" required=""/>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="g-recaptcha-response">Human?
+                                    </label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <span class="o_website_form_recaptcha" required=""/>
+                                    </div>
+                                </div>
+                                <button type="submit" id="btn_search_certificate" class="btn btn-primary float-right">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <t t-if="records">
+                        <div class="row">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Document Type</th>
+                                        <th scope="col">Document Number</th>
+                                        <th scope="col">Firm Name</th>
+                                        <th scope="col">Document Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="records" t-as="rec">
+                                        <tr>
+                                            <th scope="row">
+                                                <t t-esc="rec.document_type_id.paramter_value"/>
+                                            </th>
+                                            <th scope="row">
+                                                <t t-esc="rec.certification_number"/>
+                                            </th>
+                                            <th scope="row">
+                                                <t t-esc="rec.res_partner_id.name "/>
+                                            </th>
+                                            <th scope="row">
+                                                Active
+                                            </th>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="documents">
+        <t t-call="website.layout">
+            <t t-set="title">Documents</t>
+            <div class="oe_structure">
+                <div class="container">
+                    <t t-if="documents">
+                        <div>
+                            <h3 class="c-font-uppercase c-LEFT c-font-bold mt-3">DOKÜMANLAR</h3>
+                            <table class="table table-hover  mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Document Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="i" t-value="1"/>
+                                    <t t-foreach="documents" t-as="rec">
+                                        <tr>
+                                            <th scope="row">
+                                                <t t-esc="i"/>
+                                            </th>
+                                            <th scope="row">
+                                                <a t-attf-href="/download/document/{{rec.id}}">
+                                                    <t t-esc="rec.paramter_value"/>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

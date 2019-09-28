@@ -17,12 +17,18 @@
         'document',
         'web_tour',
         'digest',
+        'backend_theme_v12',
+        'theme_nice_bootstrap',
+        'theme_common',
+        'web_responsive',
+        'website_animate',
     ],
     'data': [
         'security/certification_group.xml',
         'security/ir.model.access.csv',
         'views/hr_certificate_view.xml',
         'views/res_partner_view.xml',
+        'views/web.xml',
 
     ],
     'demo': [
