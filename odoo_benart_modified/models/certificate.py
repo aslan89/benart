@@ -34,8 +34,6 @@ class Certificate(models.Model):
 
     validity_status = fields.Char(String='Validity Status')
 
-    description = fields.Text(String='Description')
-
 
     @api.constrains('validity_date')
     def _compute_validity_status(self):

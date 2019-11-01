@@ -99,8 +99,6 @@
                 <tree string="Paramater">
                     <field name="parameter_name"/>
                     <field name="paramter_value"/>
-                    <field name="file"/>
-                    <field name="file_name"/>
                     <field name="is_active"/>
                 </tree>
             </field>
@@ -118,8 +116,8 @@
                             <group>
                                 <field name="parameter_name"/>
                                 <field name="paramter_value"/>
-                                <field name="file" filename="file_name" attrs="{'required': [('parameter_name','=','document_attachment')],
-                                                                'invisible': [('parameter_name','!=','document_attachment')]}"/>
+                                <field name="file" filename="file_name" attrs="{'required': [('parameter_name','=','document_type')],
+                                                                'invisible': [('parameter_name','!=','document_type')]}"/>
                                 <field name="file_name" invisible="True"/>
                             </group>
                             <group>
@@ -178,9 +176,6 @@
                                 <field name="release_date"/>
                                 <field name="validity_date"/>
                                 <field name="validity_status"/>
-                            </group>
-                            <group>
-                                <field name="description"/>
                             </group>
                         </group>
                     </sheet>
