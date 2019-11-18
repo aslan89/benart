@@ -66,6 +66,7 @@
                                     <tr>
                                         <th scope="col">Document Type</th>
                                         <th scope="col">Document Number</th>
+                                        <th scope="col">Standart</th>
                                         <th scope="col">Firm Name</th>
                                         <th scope="col">Document Status</th>
                                     </tr>
@@ -78,6 +79,9 @@
                                             </th>
                                             <th scope="row">
                                                 <t t-esc="rec.certification_number"/>
+                                            </th>
+                                             <th scope="row">
+                                                <t t-esc="rec.standart_definition"/>
                                             </th>
                                             <th scope="row">
                                                 <t t-esc="rec.res_partner_id.name "/>

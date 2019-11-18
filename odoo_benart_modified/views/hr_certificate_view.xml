@@ -147,6 +147,7 @@
                     <field name="release_date"/>
                     <field name="validity_date"/>
                     <field name="validity_status"/>
+                    <field name="standart_definition"/>
                 </tree>
             </field>
         </record>
@@ -167,6 +168,7 @@
                                 <field name="certification_body_id"/>
                                 <field name="accreditation_id"/>
                                 <field name="document_type_id"/>
+                                <field name="standart_definition"/>
 
                             </group>
                             <group>
