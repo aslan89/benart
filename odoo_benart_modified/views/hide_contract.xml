@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem name="Contacts"
+        id="contacts.menu_contacts"
+        sequence="4"
+        web_icon="contacts,static/description/icon.png"
+        groups="-base.group_user,-base.group_partner_manager,group_certification_contract_menu"/>
+</odoo>

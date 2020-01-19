@@ -21,6 +21,7 @@ class Certificate(models.Model):
     advicer_id = fields.Many2one('benart.advicer', string="Advicer")
     scope = fields.Text("Scope", required=True)
     certification_number = fields.Char("Certification Number", required=True)
+    standart_definition = fields.Char("Standart Definition", required=True)
 
     certificate_status = fields.Selection([
         ('active', 'Active'),

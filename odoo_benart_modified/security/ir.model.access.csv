@@ -3,3 +3,4 @@ access_benart_advicer_user,benart.advicer,model_benart_advicer,group_certificati
 access_benart_certificate_user,benart.certificate,model_benart_certificate,group_certification_admin,1,1,1,1
 access_benart_parameter_user,benart.parameter,model_benart_parameter,group_certification_admin,1,1,1,1
 access_res_partner_user_benart,res.partner,model_res_partner,group_certification_admin,1,1,1,1
+access_benart_document_type_user,benart.document_type,model_benart_document_type,group_certification_admin,1,1,1,1

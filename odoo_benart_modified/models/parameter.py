@@ -16,3 +16,12 @@ class Parameter(models.Model):
     is_active = fields.Boolean('Is Active?', default=True)
     file = fields.Binary('File')
     file_name = fields.Char('File Name')
+
+    document_type_id = fields.Many2one('benart.document_type','Document Type')
+
+
+class DocumentType(models.Model):
+    _name = 'benart.document_type'
+
+    name = fields.Char('Name', required=True)
+    active = fields.Boolean(default=True)

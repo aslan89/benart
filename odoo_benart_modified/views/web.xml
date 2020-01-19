@@ -36,14 +36,16 @@
                                   class="s_website_form container-fluid mt32">
                                 <div class="form-group">
                                     <label for="certificate_number">Certificate Number:</label>
-                                    <input type="text" class="form-control" placeholder="Enter certificate number."  t-attf-value="{{certificate_number}}"
+                                    <input type="text" class="form-control" placeholder="Enter certificate number."
+                                           t-attf-value="{{certificate_number}}"
                                            name="certificate_number" required=""/>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="firm_name">Firm Name:</label>
-                                    <input type="text" class="form-control" placeholder="Enter firm name." t-attf-value="{{firm_name}}"
+                                    <input type="text" class="form-control" placeholder="Enter firm name."
+                                           t-attf-value="{{firm_name}}"
                                            name="firm_name" required=""/>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -55,7 +57,9 @@
                                         <span class="o_website_form_recaptcha" required=""/>
                                     </div>
                                 </div>
-                                <button type="submit" id="btn_search_certificate" class="btn btn-primary float-right">Search</button>
+                                <button type="submit" id="btn_search_certificate" class="btn btn-primary float-right">
+                                    Search
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -66,6 +70,7 @@
                                     <tr>
                                         <th scope="col">Document Type</th>
                                         <th scope="col">Document Number</th>
+                                        <th scope="col">Standart</th>
                                         <th scope="col">Firm Name</th>
                                         <th scope="col">Document Status</th>
                                     </tr>
@@ -78,6 +83,9 @@
                                             </th>
                                             <th scope="row">
                                                 <t t-esc="rec.certification_number"/>
+                                            </th>
+                                            <th scope="row">
+                                                <t t-esc="rec.standart_definition"/>
                                             </th>
                                             <th scope="row">
                                                 <t t-esc="rec.res_partner_id.name "/>
@@ -103,12 +111,39 @@
                 <div class="container">
                     <t t-if="documents">
                         <div>
-                            <h3 class="c-font-uppercase c-LEFT c-font-bold mt-3">DOKÜMANLAR</h3>
+                            <h3 class="c-font-uppercase c-LEFT c-font-bold mt-3">Documents</h3>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="document_type">Document Type :</label>
+                                            <select class="form-control" onchange="this.form.submit()" name="type">
+                                                <option value="all">All</option>
+                                                <t t-foreach="document_types" t-as="d">
+                                                    <t t-if="str(d.id) == selected_type">
+                                                        <option t-attf-value="{{d.id}}" selected="">
+                                                            <t t-esc="d.name"/>
+                                                        </option>
+                                                    </t>
+                                                    <t t-if="str(d.id) != selected_type">
+                                                        <option t-attf-value="{{d.id}}">
+                                                            <t t-esc="d.name"/>
+                                                        </option>
+                                                    </t>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                             <table class="table table-hover  mt-3">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Document Name</th>
+                                        <th scope="col">Document Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,6 +156,11 @@
                                             <th scope="row">
                                                 <a t-attf-href="/download/document/{{rec.id}}">
                                                     <t t-esc="rec.paramter_value"/>
+                                                </a>
+                                            </th>
+                                            <th scope="row">
+                                                <a t-attf-href="/download/document/{{rec.id}}">
+                                                    <t t-if="rec.document_type_id" t-esc="rec.document_type_id.name"/>
                                                 </a>
                                             </th>
                                         </tr>
