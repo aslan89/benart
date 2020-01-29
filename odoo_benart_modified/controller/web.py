@@ -54,9 +54,22 @@ class Web(http.Controller):
 
     @http.route('/documents', auth='public', website=True)
     def documents(self, **kw):
-        documents = request.env['benart.parameter'].sudo().search(
-            [('parameter_name', '=', 'document_type')])
-        return http.request.render('odoo_benart_modified.documents', {'documents': documents})
+        domain = [('parameter_name', '=', 'document_type')]
+        if 'type' in kw.keys() and self.represents_int(kw.get("type", "all")):
+            domain.append(('document_type_id', '=', int(kw.get('type', 0))))
+        documents = request.env['benart.parameter'].sudo().search(domain)
+        document_types = request.env['benart.document_type'].sudo().search([])
+        return http.request.render('odoo_benart_modified.documents',
+                                   {'documents': documents, 'document_types': document_types,
+                                    'selected_type': str(kw.get("type", 'all'))})
+
+    @staticmethod
+    def represents_int(s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
 
     @http.route('/download/document/<int:id>', type='http', auth="public")
     def download_document(self, id=None, **kw):

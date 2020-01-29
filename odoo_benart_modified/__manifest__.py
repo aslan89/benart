@@ -11,6 +11,7 @@
     'website': '',
     'depends': [
         'hr',
+        'contacts',
         'calendar',
         'fetchmail',
         'utm',
@@ -29,6 +30,7 @@
         'views/hr_certificate_view.xml',
         'views/res_partner_view.xml',
         'views/web.xml',
+        'views/hide_contract.xml',
 
     ],
     'demo': [
