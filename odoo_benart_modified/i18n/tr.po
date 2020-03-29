@@ -1,0 +1,537 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_benart_modified
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-29 16:25+0000\n"
+"PO-Revision-Date: 2020-03-29 19:43+0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: tr\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__tax_identity
+msgid " Tax Number / Tax Department"
+msgstr "Vergi Numarası / Vergi Departmanı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.portal_show_sign_in
+msgid ""
+"<i class=\"fa fa-plus-circle\"/>\n"
+"                            Add a language..."
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "<strong>Danger!</strong>"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: selection:benart.parameter,parameter_name:0
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__accreditation_id
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Accreditation"
+msgstr "Akreditasyon"
+
+#. module: odoo_benart_modified
+#: selection:benart.certificate,certificate_status:0
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__active
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Active"
+msgstr "Etkin"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__adress
+msgid "Address"
+msgstr "Adres"
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.benart_advicer_action
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_advicer
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_advicer_tree
+msgid "Advicer"
+msgstr "Danışman"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+msgid "All"
+msgstr "Tümü"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__authority_first_name
+msgid "Authority Name"
+msgstr "Otorite Adı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__authority_second_name
+msgid "Authority Second Name"
+msgstr "Otorite İkinci Adı"
+
+#. module: odoo_benart_modified
+#: selection:benart.certificate,certificate_status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Cancelled"
+msgstr "İptal Edildi"
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.benart_certificate_action
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_tree
+msgid "Certificate"
+msgstr "Sertifika"
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/controller/web.py:9
+#, python-format
+msgid "Certificate Number"
+msgstr "Sertifika Numarası"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Certificate Number:"
+msgstr "Sertifika Numarası:"
+
+#. module: odoo_benart_modified
+#: selection:benart.parameter,parameter_name:0
+msgid "Certificate Search Text"
+msgstr "Sertifika Sonuç Yazısı"
+
+#. module: odoo_benart_modified
+#: model:website.menu,name:odoo_benart_modified.main_menu_certificate_searching
+msgid "Certificate Searching"
+msgstr "Sertifika Arama"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__certificate_status
+msgid "Certificate Status"
+msgstr "Sertifika Durumu"
+
+#. module: odoo_benart_modified
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_certification_sub
+msgid "Certificates"
+msgstr "Sertifikalar"
+
+#. module: odoo_benart_modified
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_certification
+msgid "Certification"
+msgstr "Sertifika"
+
+#. module: odoo_benart_modified
+#: model:res.groups,name:odoo_benart_modified.group_certification_admin
+msgid "Certification Admin"
+msgstr "Setifika Yöneticisi"
+
+#. module: odoo_benart_modified
+#: selection:benart.parameter,parameter_name:0
+msgid "Certification Body"
+msgstr "Sertifika Kurumu"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Certification Description"
+msgstr "Sertifika Açıklaması"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__certification_number
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Certification Number"
+msgstr "Sertifika Numarası"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__city
+msgid "City"
+msgstr "Semt/İlçe"
+
+#. module: odoo_benart_modified
+#. openerp-web
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:22
+#, python-format
+msgid "Click here to create a new job position."
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__company_name
+msgid "Company Name"
+msgstr "Şirket Adı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_res_partner__company_number
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_res_users__company_number
+msgid "Company Number"
+msgstr "Şirket Numarası"
+
+#. module: odoo_benart_modified
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_configuration
+msgid "Configuration"
+msgstr "Yapılandırma"
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_res_partner
+msgid "Contact"
+msgstr "İletişim"
+
+#. module: odoo_benart_modified
+#: model:res.groups,name:odoo_benart_modified.group_certification_contract_menu
+msgid "Contract Menu Visible"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__country
+msgid "Country"
+msgstr "Ülke"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__create_uid
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__create_date
+msgid "Created on"
+msgstr "Oluşturulma"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_form
+msgid "Dates"
+msgstr "Tarihler"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Days to Validity Expire"
+msgstr "Zaman Aşımına Kalan Gün"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__display_name
+msgid "Display Name"
+msgstr "Görünüm Adı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+msgid "Document Name"
+msgstr "Belge Adı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Document Number"
+msgstr "Belge Numarası"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Document Status"
+msgstr "Belge Durumu"
+
+#. module: odoo_benart_modified
+#: selection:benart.parameter,parameter_name:0
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__document_type_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__document_type_id
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Document Type"
+msgstr "Belge Tipi"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+msgid "Document Type :"
+msgstr "Belge Tipi:"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+#: model:website.menu,name:odoo_benart_modified.main_menu_documents
+msgid "Documents"
+msgstr "Belgeler"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__email
+msgid "Email"
+msgstr "Eposta"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Enter certificate number."
+msgstr "Certifika numarası giriniz."
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Enter firm name."
+msgstr "Firma ismi giriniz."
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__fax_number
+msgid "Fax Number"
+msgstr "Fax Numarası"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__file
+msgid "File"
+msgstr "Dosya"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__file_name
+msgid "File Name"
+msgstr "Dosya Adı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__res_partner_id
+msgid "Firm"
+msgstr "Firma"
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/controller/web.py:10
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+#, python-format
+msgid "Firm Name"
+msgstr "Firma Adı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Firm Name:"
+msgstr "Firma Adı:"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_form
+msgid "General"
+msgstr "Genel"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Human?"
+msgstr "İnsan?"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__id
+msgid "ID"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__is_active
+msgid "Is Active?"
+msgstr "Aktif mi?"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter____last_update
+msgid "Last Modified on"
+msgstr "Son Güncelleme"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__write_uid
+msgid "Last Updated by"
+msgstr "Son Güncelleyen"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__write_date
+msgid "Last Updated on"
+msgstr "Son Güncelleme"
+
+#. module: odoo_benart_modified
+#. openerp-web
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:27
+#, python-format
+msgid "Let's have a look at the <b>applications pipeline</b> for this job position."
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Months to Validity Expire"
+msgstr "Zaman Aşımına Kalan Ay"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__name
+msgid "Name"
+msgstr "İsim"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.benart_certificate_action
+msgid "No Certificate yet"
+msgstr "Henüz hiç sertifika bulunmamaktadır."
+
+#. module: odoo_benart_modified
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.benart_advicer_action
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.benart_parameter_action
+msgid "No Parameter yet"
+msgstr "Henüz hiç parametre bulunmamaktadır."
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "On Hold"
+msgstr "Askıda"
+
+#. module: odoo_benart_modified
+#: selection:benart.certificate,certificate_status:0
+msgid "Onhold"
+msgstr "Askıda"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_parameter_tree
+msgid "Paramater"
+msgstr "Parametre"
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.benart_parameter_action
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_parameter
+msgid "Parameter"
+msgstr "Parametre"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__parameter_name
+msgid "Parameter Name"
+msgstr "Parametre Adı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Partner"
+msgstr "İş Ortağı"
+
+#. module: odoo_benart_modified
+#: selection:benart.certificate,certificate_status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Passive"
+msgstr "Pasif"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__phone_number
+msgid "Phone Number"
+msgstr "Telefon Numarası"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Please fill out this field."
+msgstr "Lütfen bu alanı doldurunuz."
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__release_date
+msgid "Release Date"
+msgstr "Yayın Tarihi"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__scope
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Scope"
+msgstr "Kapsam"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Search"
+msgstr "Arama"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Standart"
+msgstr "Standart"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__standart_definition
+msgid "Standart Definition"
+msgstr "Standart Açıklaması"
+
+#. module: odoo_benart_modified
+#. openerp-web
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:37
+#, python-format
+msgid "Try to send an email to this address, it will create an application automatically."
+msgstr ""
+
+#. module: odoo_benart_modified
+#. openerp-web
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:32
+#, python-format
+msgid "Use the breadcrumbs to <b>go back to the dashboard</b>."
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
+msgid "Valid."
+msgstr "Geçerli."
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__validity_date
+msgid "Validity Date"
+msgstr "Geçerlilik Tarihi"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__validity_status
+msgid "Validity Status"
+msgstr "Geçerlilik Durumu"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__paramter_value
+msgid "Value"
+msgstr "Maliyet"
+
+#. module: odoo_benart_modified
+#. openerp-web
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:11
+#: code:addons/odoo_benart_modified/static/src/js/tour.js:16
+#, python-format
+msgid "Want to <b>start recruiting</b> like a pro? <i>Start here.</i>"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__website
+msgid "Website"
+msgstr "Websitesi"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Weeks to Validity Expire"
+msgstr "Zaman Aşımına Kalan Hafta"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
+msgid "Years to Validity Expire"
+msgstr "Zaman Aşımına Kalan Yıl"
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_advicer
+msgid "benart.advicer"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_certificate
+msgid "benart.certificate"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_document_type
+msgid "benart.document_type"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_parameter
+msgid "benart.parameter"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/controller/web.py:27
+#, python-format
+msgid "{} required."
+msgstr ""

@@ -44,9 +44,15 @@ class Web(http.Controller):
             [('certification_number', '=', kw['certificate_number']),
              ('res_partner_id.name', 'ilike', kw['firm_name']),
              ('certificate_status', '=', 'active')])
+
+        certificate_search_text = request.env['benart.parameter'].sudo().search([
+            ('parameter_name', '=', 'certificate_search_text')
+        ], limit=1)
+
         return http.request.render('odoo_benart_modified.search_certificate',
                                    {
                                        'records': records,
+                                       'certificate_search_text': certificate_search_text,
                                        'errors': errors,
                                        'certificate_number': kw.get('certificate_number', ''),
                                        'firm_name': kw.get('firm_name', '')

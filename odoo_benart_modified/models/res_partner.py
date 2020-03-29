@@ -7,5 +7,6 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    company_number = fields.Char("Company Number", required=True)
+
+    company_number = fields.Char("Company Number", required=True,)
 

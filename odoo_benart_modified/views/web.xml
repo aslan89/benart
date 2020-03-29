@@ -68,27 +68,32 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Document Type</th>
+                                        <!--                                        <th scope="col">Document Type</th>-->
                                         <th scope="col">Document Number</th>
-                                        <th scope="col">Standart</th>
                                         <th scope="col">Firm Name</th>
+                                        <th scope="col">Standart</th>
+                                        <th scope="col">Scope</th>
                                         <th scope="col">Document Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <t t-foreach="records" t-as="rec">
                                         <tr>
-                                            <th scope="row">
-                                                <t t-esc="rec.document_type_id.paramter_value"/>
-                                            </th>
+                                            <!--                                            <th scope="row">-->
+                                            <!--                                                <t t-esc="rec.document_type_id.paramter_value"/>-->
+                                            <!--                                            </th>-->
                                             <th scope="row">
                                                 <t t-esc="rec.certification_number"/>
                                             </th>
                                             <th scope="row">
-                                                <t t-esc="rec.standart_definition"/>
+                                                <t t-esc="rec.res_partner_id.name "/>
                                             </th>
                                             <th scope="row">
-                                                <t t-esc="rec.res_partner_id.name "/>
+                                                <t t-esc="rec.standart_definition"/>
+                                            </th>
+
+                                            <th scope="row">
+                                                <t t-esc="rec.scope "/>
                                             </th>
                                             <th scope="row">
                                                 Active
@@ -96,8 +101,13 @@
                                         </tr>
                                     </t>
                                 </tbody>
+
                             </table>
                         </div>
+                        <t t-if="certificate_search_text">
+                            <t t-esc="certificate_search_text.paramter_value"/>
+
+                        </t>
                     </t>
                 </div>
             </div>

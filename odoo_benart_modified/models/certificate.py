@@ -9,32 +9,35 @@ from datetime import date
 class Certificate(models.Model):
     _name = 'benart.certificate'
     _rec_name = 'certification_number'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    application_date = fields.Date("Application Date")
-    certification_body_id = fields.Many2one('benart.parameter',
-                                            domain="[('parameter_name', '=', 'certification_body'),('is_active', '=', True)]")
-    accreditation_id = fields.Many2one('benart.parameter',
+    # certification_body_id = fields.Many2one('benart.parameter',
+    #                                         domain="[('parameter_name', '=', 'certification_body'),('is_active', '=', True)]")
+    accreditation_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
                                        domain="[('parameter_name', '=', 'accreditation'),('is_active', '=', True)]")
-    document_type_id = fields.Many2one('benart.parameter', domain="[('parameter_name', '=', 'document_type'),('is_active', '=', True)]",
+    document_type_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
+                                       domain="[('parameter_name', '=', 'document_type'),('is_active', '=', True)]",
                                        required=True)
-    res_partner_id = fields.Many2one('res.partner', required=True)
-    advicer_id = fields.Many2one('benart.advicer', string="Advicer")
-    scope = fields.Text("Scope", required=True)
-    certification_number = fields.Char("Certification Number", required=True)
-    standart_definition = fields.Char("Standart Definition", required=True)
+    res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
+                                     track_visibility="onchange")
+    # advicer_id = fields.Many2one('benart.advicer', string="Advicer")
+    scope = fields.Text("Scope", required=True, translate=True, track_visibility="onchange")
+    certification_number = fields.Char("Certification Number", required=True, track_visibility="onchange")
+    standart_definition = fields.Char("Standart Definition", required=True, track_visibility="onchange")
 
     certificate_status = fields.Selection([
         ('active', 'Active'),
         ('passive', 'Passive'),
         ('canceled', 'Cancelled'),
         ('onhold', 'Onhold')], string='Certificate Status',
-        copy=False, default='active', required=True)
+        copy=False, default='active', required=True, translate=True, track_visibility="onchange")
 
-    release_date = fields.Date("Release Date", required=True)
-    validity_date = fields.Date("Validity Date", required=True)
+    release_date = fields.Date("Release Date", required=True, track_visibility="onchange")
+    validity_date = fields.Date("Validity Date", required=True, track_visibility="onchange")
 
-    validity_status = fields.Char(String='Validity Status')
+    validity_status = fields.Char(String='Validity Status', readonly=1, track_visibility="onchange", translate=True)
 
+    active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
     @api.constrains('validity_date')
     def _compute_validity_status(self):
