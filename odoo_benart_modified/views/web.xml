@@ -113,7 +113,10 @@
                     <t t-if="certificate_search_text">
                         <t t-esc="certificate_search_text.paramter_value"/>
                     </t>
-
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
             </div>
         </t>
