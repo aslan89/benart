@@ -63,6 +63,8 @@
                             </form>
                         </div>
                     </div>
+                    <br></br>
+                    <br></br>
                     <t t-if="records">
                         <div class="row">
                             <table class="table table-hover">
@@ -104,11 +106,14 @@
 
                             </table>
                         </div>
-                        <t t-if="certificate_search_text">
-                            <t t-esc="certificate_search_text.paramter_value"/>
 
-                        </t>
                     </t>
+                    <br></br>
+                    <br></br>
+                    <t t-if="certificate_search_text">
+                        <t t-esc="certificate_search_text.paramter_value"/>
+                    </t>
+
                 </div>
             </div>
         </t>
