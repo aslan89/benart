@@ -99,13 +99,10 @@ class Web(http.Controller):
             try:
                 headers = [('X-Content-Type-Options', 'nosniff'),
                            ('ETag', '"a9cd1a783e28c28e0d49eba37b30966c"'), ('Cache-Control', 'max-age=0'),
-                           ('Content-Disposition', f"attachment; filename*=UTF-8''test.doc")]
+                           ('Content-Disposition', f"attachment; filename*=UTF-8''{req.file_name}")]
 
                 content_base64 = base64.b64decode(req.file)
-
                 headers.append(('Content-Length', len(content_base64)))
-                _logger.error("HEADERS: %s", headers)
-
                 response = request.make_response(content_base64, headers)
                 return response
             except Exception as e:
