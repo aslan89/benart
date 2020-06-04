@@ -17,7 +17,7 @@
     <template id="search_certificate">
         <t t-call="website.layout">
             <t t-set="title">Search</t>
-            <script type="text/javascript" src="/odoo_benart_modified/static/src/js/form.js"></script>
+            <script type="text/javascript" src="/odoo_benart_modified/static/src/js/form.v1.0.0.js"></script>
             <div class="oe_structure">
                 <div class="container">
                     <t t-if="errors">
@@ -57,7 +57,7 @@
                                         <span class="o_website_form_recaptcha" required=""/>
                                     </div>
                                 </div>
-                                <button type="submit" id="btn_search_certificate" class="btn btn-primary float-right">
+                                <button type="submit" id="btn_search_certificate" disabled="" class="btn btn-primary float-right">
                                     Search
                                 </button>
                             </form>
