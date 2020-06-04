@@ -103,6 +103,8 @@ class Web(http.Controller):
 
                 content_base64 = base64.b64decode(req.file)
                 headers.append(('Content-Length', len(content_base64)))
+                _logger.error("headers: %s", headers)
+
                 response = request.make_response(content_base64, headers)
                 return response
             except Exception as e:
