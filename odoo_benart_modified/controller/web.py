@@ -25,12 +25,12 @@ class Web(http.Controller):
         for i in required:
             if i not in kw.keys():
                 errors.append(_('{} required.'.format(values[i])))
-        # try:
-        #     validate = request.env['website.form.recaptcha'].sudo().validate_request(request, kw)
-        #     if not validate:
-        #         errors.append(_("Recaptcha validate!"))
-        # except:
-        #     errors.append(_("Recaptcha validate!"))
+        try:
+            validate = request.env['website.form.recaptcha'].sudo().validate_request(request, kw)
+            if not validate:
+                errors.append(_("Recaptcha validate!"))
+        except:
+            errors.append(_("Recaptcha validate!"))
 
         if errors:
             return http.request.render('odoo_benart_modified.search_certificate',
