@@ -25,7 +25,6 @@ odoo.define('website_form_recaptcha.recaptcha', function (require) {
         ],
         recaptcha_js_url: "https://www.google.com/recaptcha/api.js",
         start: function () {
-            console.log("hello")
             var self = this;
             this._super();
             this.$captchas = self.$('.o_website_form_recaptcha');
@@ -48,6 +47,8 @@ odoo.define('website_form_recaptcha.recaptcha', function (require) {
             return $('<div/>', {
                 'class': 'g-recaptcha',
                 'data-sitekey': data.site_key,
+                'data-callback':'recaptcha_success_callback',
+                'data-expired-callback':'recaptcha_expired_callback'
             });
         },
         _get_captcha_script_url: function () {
