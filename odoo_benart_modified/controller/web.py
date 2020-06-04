@@ -73,18 +73,25 @@ class Web(http.Controller):
 
     @http.route('/download/document/<int:id>', type='http', auth="public")
     def download_document(self, id=None, **kw):
-        status, headers, content = main.binary_content(
-            xmlid=None, model='benart.parameter', id=id, field='file', unique=None, filename=None,
-            filename_field='file_name', download=True, mimetype=None,
-            access_token=None, related_id=None, access_mode=None)
-        if status == 304:
-            response = werkzeug.wrappers.Response(status=status, headers=headers)
-        elif status == 301:
-            return werkzeug.utils.redirect(content, code=301)
-        elif status != 200:
-            response = request.not_found()
-        else:
-            content_base64 = base64.b64decode(content)
+        # status, headers, content = request.env['ir.http'].sudo().binary_content(
+        #     xmlid=None, model='benart.parameter', id=id, field='file', unique=None, filename=None,
+        #     filename_field='file_name', download=True, mimetype=None,
+        #     access_token=None, related_id=None, access_mode=None)
+        # if status == 304:
+        #     response = werkzeug.wrappers.Response(status=status, headers=headers)
+        # elif status == 301:
+        #     return werkzeug.utils.redirect(content, code=301)
+        # elif status != 200:
+        #     response = request.not_found()
+        # else:
+        req = request.env['benart.parameter'].sudo().search([('id', '=', id)])
+        if req:
+            headers = [('X-Content-Type-Options', 'nosniff'),
+                       ('ETag', '"a9cd1a783e28c28e0d49eba37b30966c"'), ('Cache-Control', 'max-age=0'),
+                       ('Content-Disposition', f"attachment; filename*=UTF-8''{req.file_name}")]
+            content_base64 = base64.b64decode(req.file)
             headers.append(('Content-Length', len(content_base64)))
             response = request.make_response(content_base64, headers)
-        return response
+            return response
+        else:
+            return request.not_found()
