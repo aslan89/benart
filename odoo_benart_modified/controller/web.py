@@ -10,6 +10,10 @@ values = {
     'firm_name': _('Firm Name')
 }
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class Web(http.Controller):
 
@@ -92,12 +96,18 @@ class Web(http.Controller):
         # else:
         req = request.env['benart.parameter'].sudo().search([('id', '=', id)])
         if req:
-            headers = [('X-Content-Type-Options', 'nosniff'),
-                       ('ETag', '"a9cd1a783e28c28e0d49eba37b30966c"'), ('Cache-Control', 'max-age=0'),
-                       ('Content-Disposition', f"attachment; filename*=UTF-8''{req.file_name}")]
-            content_base64 = base64.b64decode(req.file)
-            headers.append(('Content-Length', len(content_base64)))
-            response = request.make_response(content_base64, headers)
-            return response
+            try:
+                headers = [('X-Content-Type-Options', 'nosniff'),
+                           ('ETag', '"a9cd1a783e28c28e0d49eba37b30966c"'), ('Cache-Control', 'max-age=0'),
+                           ('Content-Disposition', f"attachment; filename*=UTF-8''{req.file_name}")]
+
+                content_base64 = base64.b64decode(req.file)
+                headers.append(('Content-Length', len(content_base64)))
+                response = request.make_response(content_base64, headers)
+                return response
+            except Exception as e:
+                _logger.error("ERROR: %s", e)
+
+            return request.not_found()
         else:
             return request.not_found()
