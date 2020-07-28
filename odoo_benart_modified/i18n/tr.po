@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 19:55+0000\n"
-"PO-Revision-Date: 2022-03-29 22:57+0300\n"
+"POT-Creation-Date: 2020-07-28 12:39+0000\n"
+"PO-Revision-Date: 2020-07-28 15:44+0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,26 @@ msgstr ""
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__tax_identity
 msgid " Tax Number / Tax Department"
 msgstr "Vergi Numarası / Vergi Departmanı"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "<i class=\"fa fa-book\" role=\"img\" aria-label=\"Documents\"/>"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "<i class=\"fa fa-comments\" role=\"img\" aria-label=\"Unread messages\"/>"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "<i class=\"fa fa-mail-reply\" role=\"img\" aria-label=\"Reply\" title=\"Mobile\"/>"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "<i class=\"fa fa-mobile mr4\" role=\"img\" aria-label=\"Mobile\" title=\"Mobile\"/>"
+msgstr ""
 
 #. module: odoo_benart_modified
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.portal_show_sign_in
@@ -44,7 +64,10 @@ msgstr "Akreditasyon"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_needaction
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_needaction
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_needaction
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_needaction
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_needaction
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_needaction
 msgid "Action Needed"
 msgstr "Eylem Gerekiyor"
 
@@ -53,7 +76,10 @@ msgstr "Eylem Gerekiyor"
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__active
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__active
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__active
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__active
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__active
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__active
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__active
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Active"
@@ -62,14 +88,20 @@ msgstr "Etkin"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_ids
 msgid "Activities"
 msgstr "Aktiviteler"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_state
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_state
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_state
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_state
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_state
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_state
 msgid "Activity State"
 msgstr "Aktivite Durumu"
 
@@ -92,9 +124,17 @@ msgid "All"
 msgstr "Tümü"
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__priority
+msgid "Appreciation"
+msgstr "Beğenme"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_attachment_count
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_attachment_count
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_attachment_count
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_attachment_count
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_attachment_count
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_attachment_count
 msgid "Attachment Count"
 msgstr "Ek Sayısı"
 
@@ -109,6 +149,18 @@ msgid "Authority Second Name"
 msgstr "Otorite İkinci Adı"
 
 #. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/models/work_assignment.py:95
+#: model:benart.par.work_assignment_stage,legend_blocked:odoo_benart_modified.benart_work_assignment_default_stage
+#, python-format
+msgid "Blocked"
+msgstr "Bloke"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__campaign_id
+msgid "Campaign"
+msgstr "Kampanya"
+
+#. module: odoo_benart_modified
 #: selection:benart.certificate,certificate_status:0
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Cancelled"
@@ -116,6 +168,7 @@ msgstr "İptal Edildi"
 
 #. module: odoo_benart_modified
 #: model:ir.actions.act_window,name:odoo_benart_modified.benart_certificate_action
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__certificate_id
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_tree
 msgid "Certificate"
 msgstr "Sertifika"
@@ -159,7 +212,7 @@ msgstr "Sertifika"
 #. module: odoo_benart_modified
 #: model:res.groups,name:odoo_benart_modified.group_certification_admin
 msgid "Certification Admin"
-msgstr "Sertifika Admin"
+msgstr ""
 
 #. module: odoo_benart_modified
 #: selection:benart.parameter,parameter_name:0
@@ -174,6 +227,7 @@ msgstr "Sertifika Açıklaması"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__certification_number
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__certificate_name
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Certification Number"
 msgstr "Sertifika Numarası"
@@ -191,6 +245,11 @@ msgid "Click here to create a new job position."
 msgstr ""
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__color
+msgid "Color Index"
+msgstr "Renk"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__company_name
 msgid "Company Name"
 msgstr "Şirket Adı"
@@ -203,6 +262,7 @@ msgstr "Şirket Numarası"
 
 #. module: odoo_benart_modified
 #: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_configuration
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_work_assignment_configuration
 msgid "Configuration"
 msgstr "Yapılandırma"
 
@@ -222,10 +282,18 @@ msgid "Country"
 msgstr "Ülke"
 
 #. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_form
+msgid "Create Assginment"
+msgstr ""
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__create_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__create_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__create_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__create_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__create_uid
 msgid "Created by"
 msgstr "Oluşturan"
 
@@ -233,7 +301,10 @@ msgstr "Oluşturan"
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__create_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__create_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__create_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__create_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__create_date
 msgid "Created on"
 msgstr "Oluşturulma"
 
@@ -244,14 +315,23 @@ msgstr "Tarihler"
 
 #. module: odoo_benart_modified
 #: selection:benart.certificate,validity__status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Days to Validity Expire"
-msgstr "Zaman Aşımına Günler Kalan"
+msgstr "Zaman Aşımına Kalan Gün"
+
+#. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "Delete"
+msgstr "Sil"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__display_name
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__display_name
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__display_name
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__display_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__display_name
 msgid "Display Name"
 msgstr "Görünüm Adı"
 
@@ -286,12 +366,19 @@ msgstr "Belge Tipi:"
 
 #. module: odoo_benart_modified
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.documents
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
 #: model:website.menu,name:odoo_benart_modified.main_menu_documents
 msgid "Documents"
 msgstr "Belgeler"
 
 #. module: odoo_benart_modified
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
+msgid "Dropdown menu"
+msgstr "Dropdown Menü"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__email
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__email
 msgid "Email"
 msgstr "Eposta"
 
@@ -307,8 +394,9 @@ msgstr "Firma ismi giriniz."
 
 #. module: odoo_benart_modified
 #: selection:benart.certificate,validity__status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Expired"
-msgstr "Zaman Aşımı"
+msgstr "Süresi Geçmiş"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__fax_number
@@ -327,6 +415,7 @@ msgstr "Dosya Adı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__res_partner_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__res_partner_id
 msgid "Firm"
 msgstr "Firma"
 
@@ -343,23 +432,37 @@ msgid "Firm Name:"
 msgstr "Firma Adı:"
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__fold
+msgid "Folded in Recruitment Pipe"
+msgstr "Gizlenmiş"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_follower_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_follower_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_follower_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_follower_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_follower_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_follower_ids
 msgid "Followers"
 msgstr "Takipçiler"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_channel_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_channel_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_channel_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_channel_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_channel_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_channel_ids
 msgid "Followers (Channels)"
 msgstr "Takipçiler (Kanallar)"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_partner_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_partner_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_partner_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_partner_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_partner_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Tekipçiler (İş ortakları)"
 
@@ -367,6 +470,36 @@ msgstr "Tekipçiler (İş ortakları)"
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_certificate_form
 msgid "General"
 msgstr "Genel"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__sequence
+msgid "Gives the sequence order when displaying a list of stages."
+msgstr ""
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,kanban_state:0
+msgid "Green"
+msgstr "Yeşil"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__legend_done
+msgid "Green Kanban Label"
+msgstr "Yeşil Kanban Etiketi"
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,kanban_state:0
+msgid "Grey"
+msgstr "Gri"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__legend_normal
+msgid "Grey Kanban Label"
+msgstr "Gri Kanban Etiketi"
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,priority:0
+msgid "High Important"
+msgstr "Çok Önemli"
 
 #. module: odoo_benart_modified
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
@@ -377,30 +510,54 @@ msgstr "İnsan?"
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__id
 msgid "ID"
 msgstr ""
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_unread
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_unread
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_unread
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_unread
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_unread
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_unread
 msgid "If checked new messages require your attention."
 msgstr "Eğer işaretliyse yeni iletiler ilginizi gerektirir."
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_needaction
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_needaction
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_needaction
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_needaction
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_needaction
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "İşaretliyse, yeni mesajlar dikkatinize sunulacak."
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_has_error
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_has_error
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_has_error
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_has_error
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_has_error
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr "İşaretliyse,bazı mesajlar gönderi hatası içermektedir."
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,priority:0
+msgid "Important"
+msgstr "Önemli"
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/models/work_assignment.py:99
+#: model:benart.par.work_assignment_stage,legend_normal:odoo_benart_modified.benart_work_assignment_default_stage
+#, python-format
+msgid "In Progress"
+msgstr "Süreçte"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__is_active
@@ -410,15 +567,41 @@ msgstr "Aktif mi?"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_is_follower
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_is_follower
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_is_follower
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_is_follower
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_is_follower
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_is_follower
 msgid "Is Follower"
 msgstr "Takipçi mi"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__legend_blocked
+msgid "Kanban Blocked"
+msgstr "Kanban Bloke"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__legend_normal
+msgid "Kanban Ongoing"
+msgstr "Kanban Süreçte"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__kanban_state
+msgid "Kanban State"
+msgstr "Kanban Durumu"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__legend_done
+msgid "Kanban Valid"
+msgstr "Kanban Geçerli"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer____last_update
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate____last_update
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage____last_update
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment____last_update
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category____last_update
 msgid "Last Modified on"
 msgstr "Son Güncelleme"
 
@@ -426,7 +609,10 @@ msgstr "Son Güncelleme"
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__write_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__write_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__write_uid
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__write_uid
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__write_uid
 msgid "Last Updated by"
 msgstr "Son Güncelleyen"
 
@@ -434,9 +620,17 @@ msgstr "Son Güncelleyen"
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__write_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__write_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__write_date
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__write_date
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__write_date
 msgid "Last Updated on"
 msgstr "Son Güncelleme"
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,priority:0
+msgid "Less Important"
+msgstr "Az Önemli"
 
 #. module: odoo_benart_modified
 #. openerp-web
@@ -448,52 +642,89 @@ msgstr ""
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_main_attachment_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_main_attachment_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_main_attachment_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_main_attachment_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_main_attachment_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_main_attachment_id
 msgid "Main Attachment"
 msgstr "Ana Ek"
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__medium_id
+msgid "Medium"
+msgstr "Orta"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_has_error
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_has_error
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_has_error
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_has_error
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_has_error
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_has_error
 msgid "Message Delivery error"
 msgstr "Mesaj İletilme Hatası"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_ids
 msgid "Messages"
 msgstr "Mesajlar"
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__mobile
+msgid "Mobile"
+msgstr "Mobil"
+
+#. module: odoo_benart_modified
 #: selection:benart.certificate,validity__status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Months to Validity Expire"
-msgstr "Zaman Aşımına Aylar Kalan"
+msgstr "Zaman Aşımına Kalan Ay"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_document_type__name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__res_partner_id_name
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__name
 msgid "Name"
 msgstr "İsim"
 
 #. module: odoo_benart_modified
+#: model:benart.par.work_assignment_stage,name:odoo_benart_modified.benart_work_assignment_default_stage
+msgid "New"
+msgstr "Yeni"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_date_deadline
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_date_deadline
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_date_deadline
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_date_deadline
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_date_deadline
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Sonraki Faaliyet Zaman Sınırı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_summary
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_summary
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_summary
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_summary
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_summary
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_summary
 msgid "Next Activity Summary"
 msgstr "Sonraki Faaliyet Özeti"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_type_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_type_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_type_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_type_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_type_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_type_id
 msgid "Next Activity Type"
 msgstr "Sonraki Faaliyet Türü"
 
@@ -509,37 +740,64 @@ msgid "No Parameter yet"
 msgstr "Henüz hiç parametre bulunmamaktadır."
 
 #. module: odoo_benart_modified
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.menu_benart_work_assignment_category_action
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.menu_benart_work_assignment_stage_action
+#: model_terms:ir.actions.act_window,help:odoo_benart_modified.menu_benart_work_assignment_sub_action
+msgid "No record yet"
+msgstr "Henüz Kayıt Yok"
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,priority:0
+msgid "Normal"
+msgstr ""
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_needaction_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_needaction_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_needaction_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_needaction_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_needaction_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Eylemlerin Sayısı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_has_error_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_has_error_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_has_error_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_has_error_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_has_error_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_has_error_counter
 msgid "Number of error"
 msgstr "Hata Sayısı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_needaction_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_needaction_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_needaction_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_needaction_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_needaction_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr "Eylem gerektiren mesaj sayısı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_has_error_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_has_error_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_has_error_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_has_error_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_has_error_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Teslimat hatası olan mesaj sayısı"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__message_unread_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__message_unread_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__message_unread_counter
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__message_unread_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__message_unread_counter
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Okunmamış mesaj sayısı"
 
@@ -556,7 +814,10 @@ msgstr "Askıda"
 #. module: odoo_benart_modified
 #: selection:benart.advicer,activity_state:0
 #: selection:benart.certificate,activity_state:0
+#: selection:benart.par.work_assignment_stage,activity_state:0
 #: selection:benart.parameter,activity_state:0
+#: selection:benart.work_assignment,activity_state:0
+#: selection:benart.work_assignment_category,activity_state:0
 msgid "Overdue"
 msgstr "Geciken"
 
@@ -595,7 +856,10 @@ msgstr "Telefon Numarası"
 #. module: odoo_benart_modified
 #: selection:benart.advicer,activity_state:0
 #: selection:benart.certificate,activity_state:0
+#: selection:benart.par.work_assignment_stage,activity_state:0
 #: selection:benart.parameter,activity_state:0
+#: selection:benart.work_assignment,activity_state:0
+#: selection:benart.work_assignment_category,activity_state:0
 msgid "Planned"
 msgstr "Planlanan"
 
@@ -605,6 +869,30 @@ msgid "Please fill out this field."
 msgstr "Lütfen bu alanı doldurunuz."
 
 #. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/models/work_assignment.py:97
+#: model:benart.par.work_assignment_stage,legend_done:odoo_benart_modified.benart_work_assignment_default_stage
+#, python-format
+msgid "Ready for Next Stage"
+msgstr "Sonraki statüye geçmeye hazır"
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/controller/web.py:35
+#: code:addons/odoo_benart_modified/controller/web.py:37
+#, python-format
+msgid "Recaptcha validate!"
+msgstr "Kapça Kontrolü!"
+
+#. module: odoo_benart_modified
+#: selection:benart.work_assignment,kanban_state:0
+msgid "Red"
+msgstr "Kırmızı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__legend_blocked
+msgid "Red Kanban Label"
+msgstr "Kırmızı Kanban Etiketi"
+
+#. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__release_date
 msgid "Release Date"
 msgstr "Yayın Tarihi"
@@ -612,7 +900,10 @@ msgstr "Yayın Tarihi"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__activity_user_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__activity_user_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_user_id
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__activity_user_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__activity_user_id
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__activity_user_id
 msgid "Responsible User"
 msgstr "Sorumlu Kullanıcı"
 
@@ -629,9 +920,24 @@ msgid "Search"
 msgstr "Arama"
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__sequence
+msgid "Sequence"
+msgstr "Sıra"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__source_id
+msgid "Source"
+msgstr "Kaynak"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__work_assignment_stage_id
+msgid "Stage"
+msgstr "Aşama"
+
+#. module: odoo_benart_modified
 #: model_terms:ir.ui.view,arch_db:odoo_benart_modified.search_certificate
 msgid "Standart"
-msgstr "Standart"
+msgstr ""
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__standart_definition
@@ -641,7 +947,10 @@ msgstr "Standart Açıklaması"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__activity_state
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__activity_state
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__activity_state
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__activity_state
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__activity_state
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__activity_state
 msgid ""
 "Status based on activities\n"
 "Overdue: Due date is already passed\n"
@@ -654,9 +963,37 @@ msgstr ""
 "Planlanan: Gelecek etkinlikler."
 
 #. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__categ_ids
+msgid "Tags"
+msgstr "Etiketler"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__campaign_id
+msgid "This is a name that helps you keep track of your different campaign efforts, e.g. Fall_Drive, Christmas_Special"
+msgstr "Farklı kampanya çabalarınızı izlemenize yardımcı olacak bir isimdir Örn: Sonbahar_Sürüşü, Yılbaşı_Özel"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr "Bu teslimat yöntemidir. örn: Postakartı, Eposta yada Banner reklamı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__source_id
+msgid "This is the source of the link, e.g. Search Engine, another domain, or name of email list"
+msgstr "Bu bağlantı kaynağıdır. örn: Arama Motoru, başka alan adı yada bir e-posta listesi adı"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__fold
+msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgstr "Bu aşamada gösterilecek kayıt kalmadığında kanban görünümünde katlanmış aşamadır."
+
+#. module: odoo_benart_modified
 #: selection:benart.advicer,activity_state:0
 #: selection:benart.certificate,activity_state:0
+#: selection:benart.par.work_assignment_stage,activity_state:0
 #: selection:benart.parameter,activity_state:0
+#: selection:benart.work_assignment,activity_state:0
+#: selection:benart.work_assignment_category,activity_state:0
 msgid "Today"
 msgstr "Bugün"
 
@@ -670,14 +1007,21 @@ msgstr ""
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_unread
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_unread
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_unread
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_unread
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_unread
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_unread
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.hr_kanban_view_work_assignment
 msgid "Unread Messages"
 msgstr "Okunmamış Mesajlar"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__message_unread_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__message_unread_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__message_unread_counter
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__message_unread_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__message_unread_counter
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Okunmamış Mesaj Sayacı"
 
@@ -709,7 +1053,7 @@ msgstr "Geçerlilik Durumu"
 #: model:ir.cron,cron_name:odoo_benart_modified.ir_validity_status_batch
 #: model:ir.cron,name:odoo_benart_modified.ir_validity_status_batch
 msgid "Validty Status Batch"
-msgstr "Geçerlilik zamanı güncelleme"
+msgstr ""
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__paramter_value
@@ -732,26 +1076,74 @@ msgstr "Websitesi"
 #. module: odoo_benart_modified
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_advicer__website_message_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_certificate__website_message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_par_work_assignment_stage__website_message_ids
 #: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_parameter__website_message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__website_message_ids
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment_category__website_message_ids
 msgid "Website Messages"
 msgstr "Websitesi Mesajları"
 
 #. module: odoo_benart_modified
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_advicer__website_message_ids
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_certificate__website_message_ids
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_par_work_assignment_stage__website_message_ids
 #: model:ir.model.fields,help:odoo_benart_modified.field_benart_parameter__website_message_ids
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment__website_message_ids
+#: model:ir.model.fields,help:odoo_benart_modified.field_benart_work_assignment_category__website_message_ids
 msgid "Website communication history"
 msgstr "Web Sitesi iletişim geçmişi"
 
 #. module: odoo_benart_modified
 #: selection:benart.certificate,validity__status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Weeks to Validity Expire"
-msgstr "Zaman Aşımına Haftalar Kalan"
+msgstr "Zaman Aşımına Kalan Hafta"
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.menu_benart_work_assignment_sub_action
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_work_assignment
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_work_assignment_tree
+msgid "Work Assignment"
+msgstr "İş Ataması"
+
+#. module: odoo_benart_modified
+#: model:res.groups,name:odoo_benart_modified.group_work_assignment_admin
+msgid "Work Assignment Admin"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.menu_benart_work_assignment_category_action
+msgid "Work Assignment Category"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.actions.act_window,name:odoo_benart_modified.menu_benart_work_assignment_stage_action
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_work_assignment_stage
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_par_work_assignment_category_tree
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.benart_par_work_assignment_stage_tree
+msgid "Work Assignment Stage"
+msgstr "İş Ataması Statüsü"
+
+#. module: odoo_benart_modified
+#: model:ir.ui.menu,name:odoo_benart_modified.menu_benart_work_assignment_sub
+msgid "Work Assignments"
+msgstr "İş Atamaları"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__work_definiton
+msgid "Work Definition"
+msgstr "İş"
+
+#. module: odoo_benart_modified
+#: model:ir.model.fields,field_description:odoo_benart_modified.field_benart_work_assignment__work_definiton_summary
+msgid "Work Definition Summary"
+msgstr "İş Açıklaması"
 
 #. module: odoo_benart_modified
 #: selection:benart.certificate,validity__status:0
+#: model_terms:ir.ui.view,arch_db:odoo_benart_modified.view_benart_certification_search
 msgid "Years to Validity Expire"
-msgstr "Zaman Aşımına Yıllar Kalan"
+msgstr "Zaman Aşımına Kalan Yıl"
 
 #. module: odoo_benart_modified
 #: model:ir.model,name:odoo_benart_modified.model_benart_advicer
@@ -769,12 +1161,27 @@ msgid "benart.document_type"
 msgstr ""
 
 #. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_par_work_assignment_stage
+msgid "benart.par.work_assignment_stage"
+msgstr ""
+
+#. module: odoo_benart_modified
 #: model:ir.model,name:odoo_benart_modified.model_benart_parameter
 msgid "benart.parameter"
 msgstr ""
 
 #. module: odoo_benart_modified
-#: code:addons/odoo_benart_modified/controller/web.py:27
+#: model:ir.model,name:odoo_benart_modified.model_benart_work_assignment
+msgid "benart.work_assignment"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: model:ir.model,name:odoo_benart_modified.model_benart_work_assignment_category
+msgid "benart.work_assignment_category"
+msgstr ""
+
+#. module: odoo_benart_modified
+#: code:addons/odoo_benart_modified/controller/web.py:31
 #, python-format
 msgid "{} required."
 msgstr ""

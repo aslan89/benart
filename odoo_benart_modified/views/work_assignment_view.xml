@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="menu_benart_work_assignment_sub_action">
+            <field name="name">Work Assignment</field>
+            <field name="res_model">benart.work_assignment</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No record yet
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="menu_benart_work_assignment_stage_action">
+            <field name="name">Work Assignment Stage</field>
+            <field name="res_model">benart.par.work_assignment_stage</field>
+            <field name="view_mode">tree,form,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No record yet
+                </p>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="menu_benart_work_assignment_category_action">
+            <field name="name">Work Assignment Category</field>
+            <field name="res_model">benart.work_assignment_category</field>
+            <field name="view_mode">tree,form,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No record yet
+                </p>
+            </field>
+        </record>
+
+
+        <record id="benart_work_assignment_tree" model="ir.ui.view">
+            <field name="name">benart.work_assignment.tree</field>
+            <field name="model">benart.work_assignment</field>
+            <field name="arch" type="xml">
+                <tree string="Work Assignment">
+                    <field name="work_assignment_stage_id"/>
+                    <field name="work_definiton_summary"/>
+                    <field name="work_definiton"/>
+                    <field name="res_partner_id"/>
+                    <field name="certificate_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_work_assignment_form" model="ir.ui.view">
+            <field name="name">benart.work_assignment.form</field>
+            <field name="model">benart.work_assignment</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" attrs="{'invisible':[('active','=',False)]}">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="res_partner_id"/>
+                                <field name="certificate_id"/>
+                                <field name="mobile"/>
+                                <field name="email"/>
+
+                            </group>
+                            <group>
+                                <field name="work_definiton_summary"/>
+                                <field name="work_definiton"/>
+                                <field name="work_assignment_stage_id"
+                                       options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
+                                <field name="active" attrs="{'invisible':[('active','=',True)]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="benart_par_work_assignment_stage_tree" model="ir.ui.view">
+            <field name="name">benart.par.work_assignment_stage.tree</field>
+            <field name="model">benart.par.work_assignment_stage</field>
+            <field name="arch" type="xml">
+                <tree string="Work Assignment Stage">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_par_work_assignment_stage_form" model="ir.ui.view">
+            <field name="name">benart.par.work_assignment_stage.form</field>
+            <field name="model">benart.par.work_assignment_stage</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" attrs="{'invisible':[('active','=',False)]}">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="sequence"/>
+
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="benart_par_work_assignment_category_tree" model="ir.ui.view">
+            <field name="name">benart.work_assignment_category.tree</field>
+            <field name="model">benart.work_assignment_category</field>
+            <field name="arch" type="xml">
+                <tree string="Work Assignment Stage">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="benart_par_work_assignment_category_form" model="ir.ui.view">
+            <field name="name">benart.work_assignment_category.form</field>
+            <field name="model">benart.work_assignment_category</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" attrs="{'invisible':[('active','=',False)]}">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem
+                id="menu_benart_work_assignment"
+                name="Work Assignment"
+                groups="group_work_assignment_admin"
+                web_icon="odoo_benart_modified,static/description/work_assignment_icon.png"
+                sequence="70"/>
+
+        <menuitem
+                name="Work Assignments"
+                parent="menu_benart_work_assignment"
+                groups="group_work_assignment_admin"
+                action="menu_benart_work_assignment_sub_action"
+                id="menu_benart_work_assignment_sub" sequence="2"/>
+
+
+        <menuitem id="menu_benart_work_assignment_configuration"
+                  name="Configuration"
+                  parent="menu_benart_work_assignment"
+                  groups="group_work_assignment_admin"
+                  sequence="100"/>
+
+        <menuitem
+                name="Work Assignment Stage"
+                parent="menu_benart_work_assignment_configuration"
+                groups="group_work_assignment_admin"
+                action="menu_benart_work_assignment_stage_action"
+                id="menu_benart_work_assignment_stage" sequence="2"/>
+
+
+        <record model="ir.ui.view" id="hr_kanban_view_work_assignment">
+            <field name="name">Work Assignment Kanban</field>
+            <field name="model">benart.work_assignment</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="work_assignment_stage_id" class="o_kanban_applicant">
+                    <field name="work_assignment_stage_id"
+                           options='{"group_by_tooltip": {"requirements": "Requirements"}}'/>
+                    <field name="color"/>
+                    <field name="priority"/>
+                    <field name="message_needaction_counter"/>
+                    <field name="active"/>
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="certificate_name"/>
+                    <field name="work_definiton_summary"/>
+                    <field name="res_partner_id_name"/>
+                    <field name="activity_ids"/>
+                    <field name="activity_state"/>
+                    <progressbar field="activity_state"
+                                 colors='{"planned": "success", "overdue": "danger", "today": "warning"}'/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override">
+                                <div class="o_dropdown_kanban dropdown">
+
+                                    <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown"
+                                       href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                        </t>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <b class="o_kanban_record_title mt8"
+                                               t-if="record.res_partner_id_name.raw_value">
+                                                <field name="res_partner_id_name"/>
+                                                <br/>
+                                            </b>
+                                            <t>
+                                                <i class="o_kanban_record_title"
+                                                   t-if="record.work_definiton_summary.raw_value">
+                                                    <field name="work_definiton_summary"/>
+                                                </i>
+                                                <br/>
+                                            </t>
+                                            <div class="o_kanban_record_subtitle"
+                                                 t-if="record.certificate_name.raw_value">
+                                                <field name="certificate_name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <field name="categ_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    <t t-if="record.mobile.raw_value">
+                                        <i class="fa fa-mobile mr4" role="img" aria-label="Mobile" title="Mobile"/>
+                                        <field name="mobile" widget="phone"/>
+                                        <br/>
+                                    </t>
+                                    <t t-if="record.email.raw_value">
+                                        <i class="fa fa-mail-reply" role="img" aria-label="Reply" title="Mobile"/>
+                                        <field name="email" widget="email"/>
+                                        <br/>
+                                    </t>
+                                    <div class="o_kanban_record_bottom mt4">
+                                        <div class="oe_kanban_bottom_left">
+                                            <div class="float-left mr4" groups="base.group_user">
+                                                <field name="priority" widget="priority"/>
+                                            </div>
+                                            <div class="o_kanban_inline_block mr8">
+                                                <field name="activity_ids" widget="kanban_activity"/>
+                                            </div>
+                                            <t t-if="record.message_needaction_counter.raw_value">
+                                                <span role="alert" class='oe_kanban_mail_new mr4'
+                                                      title='Unread Messages'>
+                                                    <i class='fa fa-comments' role="img" aria-label="Unread messages"/>
+                                                    <t t-raw="record.message_needaction_counter.raw_value"/>
+                                                </span>
+                                            </t>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <a name="action_get_attachment_tree_view" type="object">
+                                                <span title='Documents'>
+                                                    <i class='fa fa-book' role="img" aria-label="Documents"/>
+                                                    <t/>
+                                                </span>
+                                            </a>
+                                            <div class="o_kanban_state_with_padding">
+                                                <field name="kanban_state" widget="kanban_state_selection"/>
+                                                <field name="legend_normal" invisible="1"/>
+                                                <field name="legend_blocked" invisible="1"/>
+                                                <field name="legend_done" invisible="1"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="ir_attachment_view_search_inherit_work_assignment" model="ir.ui.view">
+            <field name="name">ir.attachment.search.inherit.work.assignment</field>
+            <field name="model">ir.attachment</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="base.view_attachment_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='my_documents_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='url_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='binary_filter']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

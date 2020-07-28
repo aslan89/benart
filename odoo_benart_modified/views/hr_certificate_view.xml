@@ -170,6 +170,10 @@
             <field name="priority">1000</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button string="Create Assginment" name="create_assignment" class="oe_highlight" type="object"
+                               groups="odoo_benart_modified.group_certification_admin"/>
+                    </header>
                     <sheet>
                         <group>
 
@@ -278,7 +282,7 @@
                             domain="[('validity__status', '=', 'weeks_to_validity_expire')]"/>
                     <filter string="Days to Validity Expire" name="validity__status"
                             domain="[('validity__status', '=', 'days_to_validity_expire')]"/>
-                     <filter string="Expired" name="validity__status"
+                    <filter string="Expired" name="validity__status"
                             domain="[('validity__status', '=', 'expired')]"/>
                 </search>
             </field>

@@ -26,9 +26,12 @@
     ],
     'data': [
         'security/certification_group.xml',
+        'security/work_assignment_group.xml',
         'security/ir.model.access.csv',
         'data/validity_status_batch.xml',
+        'data/work_assignment_data.xml',
         'views/hr_certificate_view.xml',
+        'views/work_assignment_view.xml',
         'views/res_partner_view.xml',
         'views/web.xml',
         'views/hide_contract.xml',
