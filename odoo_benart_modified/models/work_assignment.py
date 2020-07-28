@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from AptUrl.Helpers import _
 
-from odoo import fields, models
+from odoo import fields, models, api
 from odoo.odoo import api
+from AptUrl.Helpers import _
 
 AVAILABLE_PRIORITIES = [
     ('0', 'Normal'),
