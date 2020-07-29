@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models, api
-from AptUrl.Helpers import _
+from odoo.tools.translate import _
 
 AVAILABLE_PRIORITIES = [
     ('0', 'Normal'),
