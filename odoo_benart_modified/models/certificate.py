@@ -48,9 +48,10 @@ class Certificate(models.Model):
 
     active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
+
     def create_assignment(self):
         for i in self:
-            self.env['benart.work_assignment'].create({'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
+            self.env['benart.work_management'].create({'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
                                                        'work_definiton_summary': "BATCH"})
 
     @api.multi

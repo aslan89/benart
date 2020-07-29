@@ -191,7 +191,7 @@
                 id="menu_benart_work_management"
                 name="Work Management"
                 groups="group_work_management_admin"
-                web_icon="odoo_benart_modified,static/description/work_management_icon.png"
+                web_icon="benart_work_management,static/description/icon.png"
                 sequence="70"/>
 
         <menuitem

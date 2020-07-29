@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_benart_work_management_admin,benart.work_management,model_benart_work_management,group_work_management_admin,1,1,1,0
+access_benart_par_work_management_stage_admin,benart.par.work_management_stage,model_benart_par_work_management_stage,group_work_management_admin,1,1,1,0
+access_benart_work_management_category_admin,benart.work_management_category,model_benart_work_management_category,group_work_management_admin,1,1,1,0
+

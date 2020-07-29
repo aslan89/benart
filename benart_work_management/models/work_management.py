@@ -71,7 +71,7 @@ class WorkManagement(models.Model):
         action['context'] = {'default_res_model': self._name, 'default_res_id': self.ids[0]}
         action['domain'] = str(['&', ('res_model', '=', self._name), ('res_id', 'in', self.ids)])
         action['search_view_id'] = (
-        self.env.ref('odoo_benart_modified.ir_attachment_view_search_inherit_work_management').id,)
+        self.env.ref('benart_work_management.ir_attachment_view_search_inherit_work_management').id,)
         return action
 
 
