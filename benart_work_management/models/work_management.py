@@ -2,7 +2,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models, api
-from odoo.odoo import api
 from AptUrl.Helpers import _
 
 AVAILABLE_PRIORITIES = [
