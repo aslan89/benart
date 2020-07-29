@@ -2,9 +2,9 @@
 <odoo>
     <data>
 
-        <record model="ir.actions.act_window" id="menu_benart_work_assignment_sub_action">
-            <field name="name">Work Assignment</field>
-            <field name="res_model">benart.work_assignment</field>
+        <record model="ir.actions.act_window" id="menu_benart_work_management_sub_action">
+            <field name="name">Work Management</field>
+            <field name="res_model">benart.work_management</field>
             <field name="view_mode">kanban,tree,form,pivot,graph,activity</field>
             <field name="view_id" eval="False"/>
             <field name="context">{}</field>
@@ -15,9 +15,9 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="menu_benart_work_assignment_stage_action">
-            <field name="name">Work Assignment Stage</field>
-            <field name="res_model">benart.par.work_assignment_stage</field>
+        <record model="ir.actions.act_window" id="menu_benart_work_management_stage_action">
+            <field name="name">Work Management Stage</field>
+            <field name="res_model">benart.par.work_management_stage</field>
             <field name="view_mode">tree,form,activity</field>
             <field name="view_id" eval="False"/>
             <field name="context">{}</field>
@@ -29,9 +29,9 @@
         </record>
 
 
-        <record model="ir.actions.act_window" id="menu_benart_work_assignment_category_action">
-            <field name="name">Work Assignment Category</field>
-            <field name="res_model">benart.work_assignment_category</field>
+        <record model="ir.actions.act_window" id="menu_benart_work_management_category_action">
+            <field name="name">Work Management Category</field>
+            <field name="res_model">benart.work_management_category</field>
             <field name="view_mode">tree,form,activity</field>
             <field name="view_id" eval="False"/>
             <field name="context">{}</field>
@@ -43,12 +43,12 @@
         </record>
 
 
-        <record id="benart_work_assignment_tree" model="ir.ui.view">
-            <field name="name">benart.work_assignment.tree</field>
-            <field name="model">benart.work_assignment</field>
+        <record id="benart_work_management_tree" model="ir.ui.view">
+            <field name="name">benart.work_management.tree</field>
+            <field name="model">benart.work_management</field>
             <field name="arch" type="xml">
-                <tree string="Work Assignment">
-                    <field name="work_assignment_stage_id"/>
+                <tree string="Work Management">
+                    <field name="work_management_stage_id"/>
                     <field name="work_definiton_summary"/>
                     <field name="work_definiton"/>
                     <field name="res_partner_id"/>
@@ -59,9 +59,9 @@
         </record>
 
 
-        <record id="benart_work_assignment_form" model="ir.ui.view">
-            <field name="name">benart.work_assignment.form</field>
-            <field name="model">benart.work_assignment</field>
+        <record id="benart_work_management_form" model="ir.ui.view">
+            <field name="name">benart.work_management.form</field>
+            <field name="model">benart.work_management</field>
             <field name="priority">1000</field>
             <field name="arch" type="xml">
                 <form>
@@ -82,7 +82,7 @@
                             <group>
                                 <field name="work_definiton_summary"/>
                                 <field name="work_definiton"/>
-                                <field name="work_assignment_stage_id"
+                                <field name="work_management_stage_id"
                                        options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
                                 <field name="active" attrs="{'invisible':[('active','=',True)]}"/>
                             </group>
@@ -98,11 +98,11 @@
         </record>
 
 
-        <record id="benart_par_work_assignment_stage_tree" model="ir.ui.view">
-            <field name="name">benart.par.work_assignment_stage.tree</field>
-            <field name="model">benart.par.work_assignment_stage</field>
+        <record id="benart_par_work_management_stage_tree" model="ir.ui.view">
+            <field name="name">benart.par.work_management_stage.tree</field>
+            <field name="model">benart.par.work_management_stage</field>
             <field name="arch" type="xml">
-                <tree string="Work Assignment Stage">
+                <tree string="Work Management Stage">
                     <field name="name"/>
                     <field name="active"/>
                 </tree>
@@ -110,9 +110,9 @@
         </record>
 
 
-        <record id="benart_par_work_assignment_stage_form" model="ir.ui.view">
-            <field name="name">benart.par.work_assignment_stage.form</field>
-            <field name="model">benart.par.work_assignment_stage</field>
+        <record id="benart_par_work_management_stage_form" model="ir.ui.view">
+            <field name="name">benart.par.work_management_stage.form</field>
+            <field name="model">benart.par.work_management_stage</field>
             <field name="priority">1000</field>
             <field name="arch" type="xml">
                 <form>
@@ -143,11 +143,11 @@
         </record>
 
 
-        <record id="benart_par_work_assignment_category_tree" model="ir.ui.view">
-            <field name="name">benart.work_assignment_category.tree</field>
-            <field name="model">benart.work_assignment_category</field>
+        <record id="benart_par_work_management_category_tree" model="ir.ui.view">
+            <field name="name">benart.work_management_category.tree</field>
+            <field name="model">benart.work_management_category</field>
             <field name="arch" type="xml">
-                <tree string="Work Assignment Stage">
+                <tree string="Work Management Stage">
                     <field name="name"/>
                     <field name="active"/>
                 </tree>
@@ -155,9 +155,9 @@
         </record>
 
 
-        <record id="benart_par_work_assignment_category_form" model="ir.ui.view">
-            <field name="name">benart.work_assignment_category.form</field>
-            <field name="model">benart.work_assignment_category</field>
+        <record id="benart_par_work_management_category_form" model="ir.ui.view">
+            <field name="name">benart.work_management_category.form</field>
+            <field name="model">benart.work_management_category</field>
             <field name="priority">1000</field>
             <field name="arch" type="xml">
                 <form>
@@ -188,40 +188,40 @@
 
 
         <menuitem
-                id="menu_benart_work_assignment"
-                name="Work Assignment"
-                groups="group_work_assignment_admin"
-                web_icon="odoo_benart_modified,static/description/work_assignment_icon.png"
+                id="menu_benart_work_management"
+                name="Work Management"
+                groups="group_work_management_admin"
+                web_icon="odoo_benart_modified,static/description/work_management_icon.png"
                 sequence="70"/>
 
         <menuitem
-                name="Work Assignments"
-                parent="menu_benart_work_assignment"
-                groups="group_work_assignment_admin"
-                action="menu_benart_work_assignment_sub_action"
-                id="menu_benart_work_assignment_sub" sequence="2"/>
+                name="Work Managements"
+                parent="menu_benart_work_management"
+                groups="group_work_management_admin"
+                action="menu_benart_work_management_sub_action"
+                id="menu_benart_work_management_sub" sequence="2"/>
 
 
-        <menuitem id="menu_benart_work_assignment_configuration"
+        <menuitem id="menu_benart_work_management_configuration"
                   name="Configuration"
-                  parent="menu_benart_work_assignment"
-                  groups="group_work_assignment_admin"
+                  parent="menu_benart_work_management"
+                  groups="group_work_management_admin"
                   sequence="100"/>
 
         <menuitem
-                name="Work Assignment Stage"
-                parent="menu_benart_work_assignment_configuration"
-                groups="group_work_assignment_admin"
-                action="menu_benart_work_assignment_stage_action"
-                id="menu_benart_work_assignment_stage" sequence="2"/>
+                name="Work Management Stage"
+                parent="menu_benart_work_management_configuration"
+                groups="group_work_management_admin"
+                action="menu_benart_work_management_stage_action"
+                id="menu_benart_work_management_stage" sequence="2"/>
 
 
-        <record model="ir.ui.view" id="hr_kanban_view_work_assignment">
-            <field name="name">Work Assignment Kanban</field>
-            <field name="model">benart.work_assignment</field>
+        <record model="ir.ui.view" id="hr_kanban_view_work_management">
+            <field name="name">Work Management Kanban</field>
+            <field name="model">benart.work_management</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="work_assignment_stage_id" class="o_kanban_applicant">
-                    <field name="work_assignment_stage_id"
+                <kanban default_group_by="work_management_stage_id" class="o_kanban_applicant">
+                    <field name="work_management_stage_id"
                            options='{"group_by_tooltip": {"requirements": "Requirements"}}'/>
                     <field name="color"/>
                     <field name="priority"/>
@@ -326,8 +326,8 @@
         </record>
 
 
-        <record id="ir_attachment_view_search_inherit_work_assignment" model="ir.ui.view">
-            <field name="name">ir.attachment.search.inherit.work.assignment</field>
+        <record id="ir_attachment_view_search_inherit_work_management" model="ir.ui.view">
+            <field name="name">ir.attachment.search.inherit.work.management</field>
             <field name="model">ir.attachment</field>
             <field name="mode">primary</field>
             <field name="inherit_id" ref="base.view_attachment_search"/>

@@ -13,14 +13,14 @@ AVAILABLE_PRIORITIES = [
 ]
 
 
-class WorkAssignment(models.Model):
-    _name = 'benart.work_assignment'
+class WorkManagement(models.Model):
+    _name = 'benart.work_management'
     _rec_name = 'work_definiton_summary'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'utm.mixin']
 
     @api.model
     def _get_default_stage(self):
-        stage_ids = self.env['benart.par.work_assignment_stage'].search([('active','=',True)], order="sequence asc")
+        stage_ids = self.env['benart.par.work_management_stage'].search([('active','=',True)], order="sequence asc")
 
         if stage_ids:
             return stage_ids[0]
@@ -34,7 +34,7 @@ class WorkAssignment(models.Model):
     work_definiton_summary = fields.Char('Work Definition Summary', track_visibility="onchange", translate=True)
     work_definiton = fields.Text('Work Definition', track_visibility="onchange", translate=True)
 
-    work_assignment_stage_id = fields.Many2one('benart.par.work_assignment_stage', 'Stage',
+    work_management_stage_id = fields.Many2one('benart.par.work_management_stage', 'Stage',
                                                translate=True, track_visibility="onchange", required=True,
                                                index=True, default = _get_default_stage )
 
@@ -48,7 +48,7 @@ class WorkAssignment(models.Model):
     color = fields.Integer("Color Index", default=0)
     priority = fields.Selection(AVAILABLE_PRIORITIES, "Appreciation", default='0')
 
-    categ_ids = fields.Many2many('benart.work_assignment_category', string="Tags")
+    categ_ids = fields.Many2many('benart.work_management_category', string="Tags")
 
     kanban_state = fields.Selection([
         ('normal', 'Grey'),
@@ -56,10 +56,10 @@ class WorkAssignment(models.Model):
         ('blocked', 'Red')], string='Kanban State', translate=True,
         copy=False, default='normal', required=True)
 
-    legend_blocked = fields.Char(related='work_assignment_stage_id.legend_blocked', string='Kanban Blocked',
+    legend_blocked = fields.Char(related='work_management_stage_id.legend_blocked', string='Kanban Blocked',
                                  readonly=False)
-    legend_done = fields.Char(related='work_assignment_stage_id.legend_done', string='Kanban Valid', readonly=False)
-    legend_normal = fields.Char(related='work_assignment_stage_id.legend_normal', string='Kanban Ongoing',
+    legend_done = fields.Char(related='work_management_stage_id.legend_done', string='Kanban Valid', readonly=False)
+    legend_normal = fields.Char(related='work_management_stage_id.legend_normal', string='Kanban Ongoing',
                                 readonly=False)
 
 
@@ -71,12 +71,12 @@ class WorkAssignment(models.Model):
         action['context'] = {'default_res_model': self._name, 'default_res_id': self.ids[0]}
         action['domain'] = str(['&', ('res_model', '=', self._name), ('res_id', 'in', self.ids)])
         action['search_view_id'] = (
-        self.env.ref('odoo_benart_modified.ir_attachment_view_search_inherit_work_assignment').id,)
+        self.env.ref('odoo_benart_modified.ir_attachment_view_search_inherit_work_management').id,)
         return action
 
 
-class WorkAssignmentStage(models.Model):
-    _name = 'benart.par.work_assignment_stage'
+class WorkManagementStage(models.Model):
+    _name = 'benart.par.work_management_stage'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'sequence'
 
@@ -99,8 +99,8 @@ class WorkAssignmentStage(models.Model):
         'Grey Kanban Label', default=lambda self: _('In Progress'), translate=True, required=True)
 
 
-class WorkAssignmentCategory(models.Model):
-    _name = 'benart.work_assignment_category'
+class WorkManagementCategory(models.Model):
+    _name = 'benart.work_management_category'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char('Name', required=True, translate=True, track_visibility="onchange")

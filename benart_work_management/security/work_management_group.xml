@@ -3,8 +3,8 @@
     <data noupdate="1">
 
 
-        <record id="group_work_assignment_admin" model="res.groups">
-            <field name="name">Work Assignment Admin</field>
+        <record id="group_work_management_admin" model="res.groups">
+            <field name="name">Work Management Admin</field>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         </record>
 
