@@ -15,8 +15,8 @@ class Certificate(models.Model):
                                             domain="[('parameter_name', '=', 'certification_body'),('is_active', '=', True)]")
     accreditation_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
                                        domain="[('parameter_name', '=', 'accreditation'),('is_active', '=', True)]")
-    document_type_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
-                                       domain="[('parameter_name', '=', 'document_type'),('is_active', '=', True)]",
+    record_type_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
+                                       domain="[('parameter_name', '=', 'record_type'),('is_active', '=', True)]",
                                        required=True)
     res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
                                      track_visibility="onchange")

@@ -12,6 +12,7 @@ class Parameter(models.Model):
 
     parameter_name = fields.Selection([('certification_body', 'Certification Body'), ('accreditation', 'Accreditation'),
                                        ('document_type', 'Document Type'),
+                                       ('record_type', 'Record Type'),
                                        ('certificate_search_text', 'Certificate Search Text')], track_visibility="onchange",
                                       string='Parameter Name', translate=True)
 
