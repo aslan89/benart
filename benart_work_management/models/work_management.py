@@ -19,7 +19,7 @@ class WorkManagement(models.Model):
 
     @api.model
     def _get_default_stage(self):
-        stage_ids = self.env['benart.par.work_management_stage'].search([('active','=',True)], order="sequence asc")
+        stage_ids = self.env['benart.par.work_management_stage'].search([('active', '=', True)], order="sequence asc")
 
         if stage_ids:
             return stage_ids[0]
@@ -30,17 +30,21 @@ class WorkManagement(models.Model):
     mobile = fields.Char(related='res_partner_id.mobile')
     email = fields.Char(related='res_partner_id.email')
 
-    work_definiton_summary = fields.Char('Work Definition Summary', track_visibility="onchange", translate=True)
+    assingnee_id = fields.Many2one('hr.employee', string="Assingnee", translate=True,
+                                   track_visibility="onchange")
+
+    work_definiton_summary = fields.Char('Work Definition Summary', track_visibility="onchange", translate=True,
+                                         required=True, )
     work_definiton = fields.Text('Work Definition', track_visibility="onchange", translate=True)
 
     work_management_stage_id = fields.Many2one('benart.par.work_management_stage', 'Stage',
                                                translate=True, track_visibility="onchange", required=True,
-                                               index=True, default = _get_default_stage )
+                                               index=True, default=_get_default_stage)
 
     certificate_name = fields.Char(related='certificate_id.certification_number')
 
     certificate_id = fields.Many2one('benart.certificate', 'Certificate',
-                                               translate=True, track_visibility="onchange")
+                                     translate=True, track_visibility="onchange")
 
     active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
@@ -61,7 +65,35 @@ class WorkManagement(models.Model):
     legend_normal = fields.Char(related='work_management_stage_id.legend_normal', string='Kanban Ongoing',
                                 readonly=False)
 
+    @api.multi
+    @api.constrains('work_management_stage_id')
+    def _compute_assingnee_id(self):
+        template = self.env.ref('benart_work_management.work_management_assign_mail')
+        for i in self:
+            if i.work_management_stage_id and i.work_management_stage_id.default_assignee_id:
+                i.assingnee_id = i.work_management_stage_id.default_assignee_id
+                if template:
+                    template.send_mail(i.id, force_send=True)
 
+    @api.model
+    def get_email_to(self):
+        user_group = self.env.ref("benart_work_management.group_work_management_admin")
+        email_list = [
+            usr.login for usr in user_group.users if usr.login]
+        if self.assingnee_id:
+            email_list.append(self.assingnee_id.user_id.login)
+        return ",".join(email_list)
+
+    def complete_work(self):
+        template = self.env.ref('benart_work_management.work_management_completed_maill')
+        if template:
+            for i in self:
+                i.active = False
+                template.send_mail(i.id, force_send=True)
+
+    def reopen_work(self):
+        for i in self:
+            i.active = True
 
     @api.multi
     def action_get_attachment_tree_view(self):
@@ -70,7 +102,7 @@ class WorkManagement(models.Model):
         action['context'] = {'default_res_model': self._name, 'default_res_id': self.ids[0]}
         action['domain'] = str(['&', ('res_model', '=', self._name), ('res_id', 'in', self.ids)])
         action['search_view_id'] = (
-        self.env.ref('benart_work_management.ir_attachment_view_search_inherit_work_management').id,)
+            self.env.ref('benart_work_management.ir_attachment_view_search_inherit_work_management').id,)
         return action
 
 
@@ -80,6 +112,8 @@ class WorkManagementStage(models.Model):
     _order = 'sequence'
 
     name = fields.Char('Name', required=True, translate=True, track_visibility="onchange")
+    default_assignee_id = fields.Many2one('hr.employee', string="Assingnee", translate=True,
+                                          track_visibility="onchange")
     active = fields.Boolean(default=True, translate=True, track_visibility="onchange")
 
     sequence = fields.Integer(

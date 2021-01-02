@@ -16,8 +16,8 @@ class Certificate(models.Model):
     accreditation_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
                                        domain="[('parameter_name', '=', 'accreditation'),('is_active', '=', True)]")
     record_type_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
-                                       domain="[('parameter_name', '=', 'record_type'),('is_active', '=', True)]",
-                                       required=True)
+                                     domain="[('parameter_name', '=', 'record_type'),('is_active', '=', True)]",
+                                     required=True)
     res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
                                      track_visibility="onchange")
     advicer_id = fields.Many2one('benart.advicer', string="Advicer")
@@ -48,11 +48,28 @@ class Certificate(models.Model):
 
     active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
+    hide_create_assignment = fields.Boolean('Hide Create Assignment', compute='_compute_hide_create_assignment',
+                                            track_visibility="onchange", translate=True)
+
+    @api.multi
+    def _compute_hide_create_assignment(self):
+        for i in self:
+            work_management_id = self.env['benart.work_management'].search(
+                [('res_partner_id', '=', i.res_partner_id.id), ('certificate_id', '=', i.id),
+                 ('active', '=', True)])
+            if work_management_id:
+                i.hide_create_assignment = True
+            else:
+                i.hide_create_assignment = False
+
+
 
     def create_assignment(self):
         for i in self:
-            self.env['benart.work_management'].create({'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
-                                                       'work_definiton_summary': "BATCH"})
+            if i.res_partner_id.id and i.id:
+                self.env['benart.work_management'].create(
+                    {'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
+                     'work_definiton_summary': "CERTIFICATION UPDATE NEEDED"})
 
     @api.multi
     @api.depends('validity_date')
@@ -89,6 +106,15 @@ class Certificate(models.Model):
                     i.validity__status = "days_to_validity_expire"
                 else:
                     i.validity__status = "expired"
+
+                if i.validity__status in ("weeks_to_validity_expire", "days_to_validity_expire"):
+                    work_management_id = self.env['benart.work_management'].search(
+                        [('res_partner_id', '=', i.res_partner_id.id), ('certificate_id', '=', i.id),
+                         ('active', '=', True)])
+                    if not work_management_id:
+                        self.env['benart.work_management'].create(
+                            {'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
+                             'work_definiton_summary': "CERTIFICATION UPDATE NEEDED"})
 
 
 class ResPartner(models.Model):

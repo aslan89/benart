@@ -24,11 +24,15 @@
         'web_responsive',
         'website_animate',
         'odoo_benart_modified',
+        'mail',
+        'contacts'
     ],
     'data': [
         'security/work_management_group.xml',
         'security/ir.model.access.csv',
-        'views/work_management_view.xml'
+        'security/rules.xml',
+        'views/work_management_view.xml',
+        'data/mail_template.xml'
 
     ],
     'demo': [

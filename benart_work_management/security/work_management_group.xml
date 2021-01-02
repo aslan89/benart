@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
 
+        <record id="group_work_management_user" model="res.groups">
+            <field name="name">Work Management User</field>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
 
         <record id="group_work_management_admin" model="res.groups">
             <field name="name">Work Management Admin</field>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="implied_ids" eval="[(4, ref('group_work_management_user'))]"/>
         </record>
 
     </data>

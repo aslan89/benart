@@ -171,8 +171,9 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button string="Create Assginment" name="create_assignment" class="oe_highlight" type="object"
-                               groups="odoo_benart_modified.group_certification_admin"/>
+                        <button string="Create Assignment" name="create_assignment" class="oe_highlight" type="object"
+                               groups="odoo_benart_modified.group_certification_admin" attrs="{
+                                                                'invisible': ['|',('hide_create_assignment','=',True),('id','=',False)]}" />
                     </header>
                     <sheet>
                         <group>
@@ -188,6 +189,7 @@
                                        options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
                                 <field name="standart_definition"/>
                                 <field name="scope"/>
+                                <field name="hide_create_assignment" invisible="1"/>
                             </group>
                             <group string="Dates">
                                 <field name="release_date"/>
