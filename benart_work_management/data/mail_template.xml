@@ -1,23 +1,49 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <record id="work_management_completed_mail" model="mail.template">
+
+
+        <record id="work_management_completed_maill" model="mail.template">
             <field name="name">Tamamlandı Maili / İş Takip</field>
             <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
-            <field name="auto_delete" eval="True"/>
+            <field name="auto_delete" eval="False"/>
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
             <field name="subject">Tamamlanan İş</field>
             <field name="body_html">
-                Merhabalar,
-                \n
 
-                ${(object.id)} numaralı ${(object.work_definiton_summary)} işi ${(object.write_uid.name)} tarafından
+                Merhabalar,
+
+                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                ${(object.write_uid.name)}
+                tarafından
                 tamamlanmıştır.
 
                 Arz Ederiz.
-            </field>
 
+
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
         </record>
+
+
+        <record id="work_management_assign_mail" model="mail.template">
+            <field name="name">İş Ataması</field>
+            <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="email_from">odoo@benart.com.tr</field>
+            <field name="email_to">${object.get_email_to()}</field>
+            <field name="subject">İş Ataması</field>
+            <field name="body_html">
+                Merhabalar,
+
+                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi ${(object.write_uid.name)} tarafından
+                size atanmıştır
+
+                Arz Ederiz.
+            </field>
+        </record>
+
     </data>
 </odoo>
