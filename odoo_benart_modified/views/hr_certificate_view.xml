@@ -172,8 +172,8 @@
                 <form>
                     <header>
                         <button string="Create Assignment" name="create_assignment" class="oe_highlight" type="object"
-                               groups="odoo_benart_modified.group_certification_admin" attrs="{
-                                                                'invisible': ['|',('hide_create_assignment','=',True),('id','=',False)]}" />
+                                groups="odoo_benart_modified.group_certification_admin" attrs="{
+                                                                'invisible': ['|',('hide_create_assignment','=',True),('id','=',False)]}"/>
                     </header>
                     <sheet>
                         <group>

@@ -30,7 +30,7 @@ class Certificate(models.Model):
         ('passive', 'Passive'),
         ('canceled', 'Cancelled'),
         ('onhold', 'Onhold')], string='Certificate Status',
-        copy=False, default='active', required=True, translate=True, track_visibility="onchange")
+        default='active', required=True, translate=True, track_visibility="onchange")
 
     release_date = fields.Date("Release Date", required=True, track_visibility="onchange")
     validity_date = fields.Date("Validity Date", required=True, track_visibility="onchange")

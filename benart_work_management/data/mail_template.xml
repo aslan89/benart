@@ -3,13 +3,78 @@
     <data>
 
 
+
+
+
+        <record id="work_management_reopen_maill" model="mail.template">
+            <field name="name">Geri Açma Maili / İş Takip</field>
+            <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">odoo@benart.com.tr</field>
+            <field name="email_to">${object.get_email_to()}</field>
+            <field name="subject">Geri Açılan İş Hakkında - ${(object.res_partner_id_name)}</field>
+            <field name="body_html">
+
+                Merhabalar,
+
+                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                ${(object.write_uid.name)}
+                tarafından
+                geri açılmıştır.
+
+                Arz Ederiz.
+
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <record id="work_management_cancelled_maill" model="mail.template">
+            <field name="name">İptal Maili / İş Takip</field>
+            <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">odoo@benart.com.tr</field>
+            <field name="email_to">${object.get_email_to()}</field>
+            <field name="subject">İptal Edilen İş Hakkında - ${(object.res_partner_id_name)}</field>
+            <field name="body_html">
+
+                Merhabalar,
+
+                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                ${(object.write_uid.name)}
+                tarafından
+                iptal edilmiştir.
+
+                Arz Ederiz.
+
+
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+
         <record id="work_management_completed_maill" model="mail.template">
             <field name="name">Tamamlandı Maili / İş Takip</field>
             <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
             <field name="auto_delete" eval="False"/>
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
-            <field name="subject">Tamamlanan İş</field>
+            <field name="subject">Tamamlanan İş Hakkında - ${(object.res_partner_id_name)}</field>
             <field name="body_html">
 
                 Merhabalar,
@@ -34,16 +99,20 @@
             <field name="auto_delete" eval="True"/>
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
-            <field name="subject">İş Ataması</field>
+            <field name="subject">İş Ataması Hakkında - ${(object.res_partner_id_name)}</field>
             <field name="body_html">
                 Merhabalar,
 
-                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi ${(object.write_uid.name)} tarafından
+                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                ${(object.write_uid.name)} tarafından
                 size atanmıştır
 
                 Arz Ederiz.
             </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
         </record>
+
 
     </data>
 </odoo>
