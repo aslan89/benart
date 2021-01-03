@@ -24,6 +24,11 @@ class WorkManagement(models.Model):
         if stage_ids:
             return stage_ids[0]
 
+    state = fields.Selection([('open', 'Open'),
+                              ('completed', 'Completed'),
+                              ('cancelled', 'Cancelled')], string='State', default='open', translate=True,
+                             track_visibility="onchange", required=True )
+
     res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
                                      track_visibility="onchange")
     res_partner_id_name = fields.Char(related='res_partner_id.name')
@@ -89,11 +94,24 @@ class WorkManagement(models.Model):
         if template:
             for i in self:
                 i.active = False
+                i.state = "completed"
+                template.send_mail(i.id, force_send=True)
+
+    def cancel_work(self):
+        template = self.env.ref('benart_work_management.work_management_cancelled_maill')
+        if template:
+            for i in self:
+                i.active = False
+                i.state = "cancelled"
                 template.send_mail(i.id, force_send=True)
 
     def reopen_work(self):
-        for i in self:
-            i.active = True
+        template = self.env.ref('benart_work_management.work_management_reopen_maill')
+        if template:
+            for i in self:
+                i.active = True
+                i.state = "open"
+                template.send_mail(i.id, force_send=True)
 
     @api.multi
     def action_get_attachment_tree_view(self):
