@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from dateutil.relativedelta import relativedelta
 from datetime import date
 
@@ -10,6 +10,10 @@ class Certificate(models.Model):
     _name = 'benart.certificate'
     _rec_name = 'certification_number'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _sql_constraints = [
+        ('certificate_uniq', 'EXCLUDE (certification_number WITH=) WHERE (active = true)',
+         _('Certificate number must be unique'))
+    ]
 
     certification_body_id = fields.Many2one('benart.parameter',
                                             domain="[('parameter_name', '=', 'certification_body'),('is_active', '=', True)]")
