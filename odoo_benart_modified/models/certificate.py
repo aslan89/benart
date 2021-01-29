@@ -11,7 +11,7 @@ class Certificate(models.Model):
     _rec_name = 'certification_number'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _sql_constraints = [
-        ('certificate_uniq', 'EXCLUDE (certification_number WITH=) WHERE (active = true)',
+        ('certificate_uniq_sec', 'EXCLUDE (certification_number WITH=) WHERE (active = true)',
          _('Certificate number must be unique'))
     ]
 
@@ -54,6 +54,7 @@ class Certificate(models.Model):
 
     hide_create_assignment = fields.Boolean('Hide Create Assignment', compute='_compute_hide_create_assignment',
                                             track_visibility="onchange", translate=True)
+
 
     @api.multi
     def _compute_hide_create_assignment(self):
