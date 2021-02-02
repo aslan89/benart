@@ -10,3 +10,7 @@ class ResPartner(models.Model):
 
     company_number = fields.Char("Company Number", required=True,)
 
+    certificated_ids = fields.One2many('benart.certificate', 'res_partner_id', string='Certificates')
+
+
+

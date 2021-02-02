@@ -3,6 +3,7 @@
 
 from odoo import fields, models, api, _
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import Warning, ValidationError, UserError
 from datetime import date
 
 
@@ -10,18 +11,15 @@ class Certificate(models.Model):
     _name = 'benart.certificate'
     _rec_name = 'certification_number'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _sql_constraints = [
-        ('certificate_uniq_sec', 'EXCLUDE (certification_number WITH=) WHERE (active = true)',
-         _('Certificate number must be unique'))
-    ]
+
 
     certification_body_id = fields.Many2one('benart.parameter',
                                             domain="[('parameter_name', '=', 'certification_body'),('is_active', '=', True)]")
     accreditation_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
                                        domain="[('parameter_name', '=', 'accreditation'),('is_active', '=', True)]")
     record_type_id = fields.Many2one('benart.parameter', translate=True, track_visibility="onchange",
-                                     domain="[('parameter_name', '=', 'record_type'),('is_active', '=', True)]",
-                                     required=True)
+                                     domain="[('parameter_name', '=', 'record_type'),('is_active', '=', True)]")
+    
     res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
                                      track_visibility="onchange")
     advicer_id = fields.Many2one('benart.advicer', string="Advicer")
@@ -55,6 +53,15 @@ class Certificate(models.Model):
     hide_create_assignment = fields.Boolean('Hide Create Assignment', compute='_compute_hide_create_assignment',
                                             track_visibility="onchange", translate=True)
 
+    @api.multi
+    @api.constrains('certification_number')
+    def constrains_certification_number(self):
+        for i in self:
+            certificate_ids = self.env['benart.certificate'].search([('certification_number', '=', i.certification_number),
+                                                   ('id', '!=', self.id)])
+            if certificate_ids:
+                raise UserError(_("This certification number already used!"))
+
 
     @api.multi
     def _compute_hide_create_assignment(self):
@@ -66,8 +73,6 @@ class Certificate(models.Model):
                 i.hide_create_assignment = True
             else:
                 i.hide_create_assignment = False
-
-
 
     def create_assignment(self):
         for i in self:
