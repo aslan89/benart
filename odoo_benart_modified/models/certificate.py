@@ -117,14 +117,14 @@ class Certificate(models.Model):
                 else:
                     i.validity__status = "expired"
 
-                if i.validity__status in ("weeks_to_validity_expire", "days_to_validity_expire"):
-                    work_management_id = self.env['benart.work_management'].search(
-                        [('res_partner_id', '=', i.res_partner_id.id), ('certificate_id', '=', i.id),
-                         ('active', '=', True)])
-                    if not work_management_id:
-                        self.env['benart.work_management'].create(
-                            {'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
-                             'work_definiton_summary': "CERTIFICATION UPDATE NEEDED"})
+                # if i.validity__status in ("weeks_to_validity_expire", "days_to_validity_expire"):
+                #     work_management_id = self.env['benart.work_management'].search(
+                #         [('res_partner_id', '=', i.res_partner_id.id), ('certificate_id', '=', i.id),
+                #          ('active', '=', True)])
+                #     if not work_management_id:
+                #         self.env['benart.work_management'].create(
+                #             {'res_partner_id': i.res_partner_id.id, 'certificate_id': i.id,
+                #              'work_definiton_summary': "CERTIFICATION UPDATE NEEDED"})
 
 
 class ResPartner(models.Model):
