@@ -32,6 +32,7 @@
         'security/ir.model.access.csv',
         'security/rules.xml',
         'views/work_management_view.xml',
+        'data/work_management_batch.xml',
         'data/mail_template.xml'
 
     ],

@@ -3,7 +3,62 @@
     <data>
 
 
+        <record id="work_management_not_updated_work" model="mail.template">
+            <field name="name">Güncellenmemiş İş Listesi</field>
+            <field name="model_id" ref="benart_work_management.model_benart_work_management"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">odoo@benart.com.tr</field>
+            <field name="email_to">${object.get_email_to_only_admin()}</field>
+            <field name="subject">Güncellenmemiş İş Listesi</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                Merhabalar,
+                                <br/>
+                                <br/>
+                                Son 1 hafta içinde güncelleme yapılmamış işler aşağıdaki gibidir.
+                                <br/>
+                                <br/>
+                                <br/>
+                                <table>
+                                    <tr>
+                                        <th>İş Açıklaması</th>
+                                        <th>Atanan Kişi</th>
+                                        <th>Firma</th>
+                                        <th>İş Oluşturulma Tarihi</th>
+                                        <th>Deadline Tarihi</th>
+                                    </tr>
+                                    % for work in object.get_not_updated_works():
+                                    <tr>
+                                        <td>${work.work_definiton_summary}</td>
+                                        <td>${work.assingnee_id.name}</td>
+                                        <td>${work.res_partner_id_name}</td>
+                                        <td>${work.create_date}</td>
+                                        <td>${work.deadline_date}</td>
+                                    </tr>
+                                    % endfor
+                                </table>
+                                <br/>
+                                <br/>
+                                Saygılarımızla ,
+                                <br/>
+                                Benart
+                                <br/>
 
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
+        </record>
 
 
         <record id="work_management_reopen_maill" model="mail.template">
@@ -13,34 +68,40 @@
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
             <field name="subject">Geri Açılan İş Hakkında - ${(object.res_partner_id_name)}</field>
-            <field name="body_html">
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                <br/>
+                                Merhabalar,
+                                <br/>
+                                <br/>
 
-                Merhabalar,
+                                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                                ${(object.write_uid.name)}
+                                tarafından
+                                geri açılmıştır.
+                                <br/>
+                                <br/>
 
-                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
-                ${(object.write_uid.name)}
-                tarafından
-                geri açılmıştır.
+                                Arz Ederiz.
+                                <br/>
+                                <br/>
+                                Benart
 
-                Arz Ederiz.
-
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </field>
             <field name="user_signature" eval="False"/>
             <field name="auto_delete" eval="False"/>
         </record>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <record id="work_management_cancelled_maill" model="mail.template">
@@ -50,19 +111,38 @@
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
             <field name="subject">İptal Edilen İş Hakkında - ${(object.res_partner_id_name)}</field>
-            <field name="body_html">
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                <br/>
+                                Merhabalar,
+                                <br/>
+                                <br/>
 
-                Merhabalar,
+                                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                                ${(object.write_uid.name)}
+                                tarafından
+                                iptal edilmiştir.
+                                <br/>
+                                <br/>
 
-                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
-                ${(object.write_uid.name)}
-                tarafından
-                iptal edilmiştir.
+                                Arz Ederiz.
+                                <br/>
+                                <br/>
+                                Benart
 
-                Arz Ederiz.
-
-
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </field>
+
             <field name="user_signature" eval="False"/>
             <field name="auto_delete" eval="False"/>
         </record>
@@ -75,18 +155,36 @@
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
             <field name="subject">Tamamlanan İş Hakkında - ${(object.res_partner_id_name)}</field>
-            <field name="body_html">
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                <br/>
+                                Merhabalar,
+                                <br/>
+                                <br/>
 
-                Merhabalar,
+                                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                                ${(object.write_uid.name)}
+                                tarafından
+                                tamamlanmıştır.
+                                <br/>
+                                <br/>
 
-                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
-                ${(object.write_uid.name)}
-                tarafından
-                tamamlanmıştır.
+                                Arz Ederiz.
+                                <br/>
+                                <br/>
+                                Benart
 
-                Arz Ederiz.
-
-
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </field>
             <field name="user_signature" eval="False"/>
             <field name="auto_delete" eval="False"/>
@@ -100,14 +198,35 @@
             <field name="email_from">odoo@benart.com.tr</field>
             <field name="email_to">${object.get_email_to()}</field>
             <field name="subject">İş Ataması Hakkında - ${(object.res_partner_id_name)}</field>
-            <field name="body_html">
-                Merhabalar,
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                <br/>
+                                Merhabalar,
+                                <br/>
+                                <br/>
 
-                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
-                ${(object.write_uid.name)} tarafından
-                size atanmıştır
+                                ${(object.res_partner_id_name)} firması için ${(object.work_definiton_summary)} işi
+                                ${(object.write_uid.name)} tarafından
+                                size atanmıştır
+                                <br/>
+                                <br/>
 
-                Arz Ederiz.
+                                Arz Ederiz.
+                                <br/>
+                                <br/>
+                                Benart
+
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </field>
             <field name="user_signature" eval="False"/>
             <field name="auto_delete" eval="False"/>

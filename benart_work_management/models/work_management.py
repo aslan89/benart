@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models, api
 from odoo.tools.translate import _
+from datetime import date, datetime
 
 AVAILABLE_PRIORITIES = [
     ('0', 'Normal'),
@@ -27,7 +29,7 @@ class WorkManagement(models.Model):
     state = fields.Selection([('open', 'Open'),
                               ('completed', 'Completed'),
                               ('cancelled', 'Cancelled')], string='State', default='open', translate=True,
-                             track_visibility="onchange", required=True )
+                             track_visibility="onchange", required=True)
 
     res_partner_id = fields.Many2one('res.partner', required=True, string="Firm", translate=True,
                                      track_visibility="onchange")
@@ -51,12 +53,18 @@ class WorkManagement(models.Model):
     certificate_id = fields.Many2one('benart.certificate', 'Certificate',
                                      translate=True, track_visibility="onchange")
 
+    deadline_date = fields.Date("Deadline", translate=True, track_visibility="onchange",
+                                default=fields.Date.context_today)
+
     active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
     color = fields.Integer("Color Index", default=0)
     priority = fields.Selection(AVAILABLE_PRIORITIES, "Appreciation", default='0')
 
     categ_ids = fields.Many2many('benart.work_management_category', string="Tags")
+
+    hide_deadline_date = fields.Boolean('Hide Deadline', compute='_compute_hide_deadline_date',
+                                        track_visibility="onchange", translate=True)
 
     kanban_state = fields.Selection([
         ('normal', 'Grey'),
@@ -69,6 +77,42 @@ class WorkManagement(models.Model):
     legend_done = fields.Char(related='work_management_stage_id.legend_done', string='Kanban Valid', readonly=False)
     legend_normal = fields.Char(related='work_management_stage_id.legend_normal', string='Kanban Ongoing',
                                 readonly=False)
+
+    @api.model
+    def get_email_to_only_admin(self):
+        user_group = self.env.ref("odoo_benart_modified.group_certification_admin")
+        email_list = [
+            usr.login for usr in user_group.users if usr.login]
+        return ",".join(email_list)
+
+    @api.multi
+    def work_management_batch(self):
+        template = self.env.ref('benart_work_management.work_management_not_updated_work')
+        work_management_id = self.env['benart.work_management'].search([('active', '=', True)], limit=1)
+        if template:
+            template.send_mail(work_management_id.id, force_send=True)
+
+    @api.multi
+    def get_not_updated_works(self):
+        not_updated_work_management_ids = []
+        work_management_ids = self.env['benart.work_management'].search([('active', '=', True), ('state', '=', 'open')])
+        for i in work_management_ids:
+            message_id = self.env['mail.message'].search(
+                [ ('message_type', '=', 'comment'), ('model', '=', 'benart.work_management'),
+                 ('res_id', '=', i.id)], order="date desc",limit=1)
+            if not message_id and i.create_date < (datetime.today()-relativedelta(weeks=1)):
+                not_updated_work_management_ids.append(i)
+            elif message_id and message_id.date < (datetime.today()-relativedelta(weeks=1)):
+                not_updated_work_management_ids.append(i)
+        return not_updated_work_management_ids
+
+    @api.multi
+    def _compute_hide_deadline_date(self):
+        for i in self:
+            if self.env.user.has_group('benart_work_management.group_work_management_admin'):
+                i.hide_deadline_date = True
+            else:
+                i.hide_deadline_date = False
 
     @api.multi
     @api.constrains('work_management_stage_id')

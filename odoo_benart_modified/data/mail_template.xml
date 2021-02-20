@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="odoo_benart_modified_certification_exp_remainder" model="mail.template">
+            <field name="name">Sertifika Hatırlatma</field>
+            <field name="model_id" ref="odoo_benart_modified.model_benart_certificate"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="email_from">odoo@benart.com.tr</field>
+            <field name="email_to">${object.get_email_to()}</field>
+            <field name="subject">Sertifika Hatırlatma</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                Merhabalar,
+                                <br/>
+                                <br/>
+                                Aksiyon alınması gereken belgelerin listesi aşağıdaki gibidir. Yenilenmeyecek kayıtları
+                                arşivlemeniz beklenmektedir.
+                                <br/>
+                                <br/>
+                                <br/>
+                                <table>
+                                    <tr>
+                                        <th>Sertifika</th>
+                                        <th>Firma</th>
+                                        <th>Belge Tarihi</th>
+                                        <th>Geçerlilik Tarihi</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                    % for certification in object.get_need_action_certifacates():
+                                    <tr>
+                                        <td>${certification.certification_number}</td>
+                                        <td>${certification.res_partner_id.name}</td>
+                                        <td>${certification.release_date}</td>
+                                        <td>${certification.validity_date}</td>
+                                        <td>${certification.validity__status}</td>
+                                    </tr>
+                                    % endfor
+                                </table>
+                                <br/>
+                                <br/>
+                                Saygılarımızla ,
+                                <br/>
+                                Benart
+                                <br/>
+
+                                <br/>
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+    </data>
+</odoo>
