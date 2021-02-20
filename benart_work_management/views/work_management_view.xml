@@ -92,29 +92,34 @@
                                        options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
                                 <field name="mobile"/>
                                 <field name="email"/>
-                                <field name="work_definiton_summary"/>
-                                <field name="work_management_stage_id"
-                                       groups="benart_work_management.group_work_management_admin"
+                                <field name="certificate_id"
                                        options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
 
                             </group>
                             <group>
-                                <field name="assingnee_id"
+                                <field name="work_management_stage_id"
+                                       groups="benart_work_management.group_work_management_admin"
                                        options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
-                                <field name="certificate_id"
-                                       options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
+                                <field name="work_definiton_summary"/>
                                 <field name="work_definiton"/>
-                                <field name="active" readonly="1" invisible="1"/>
+
+
                             </group>
                             <group>
-                                <field name="deadline_date" readonly="1" attrs="{'invisible': [('hide_deadline_date', '=', True)]}"/>
+                                <field name="deadline_date" readonly="1"
+                                       attrs="{'invisible': [('hide_deadline_date', '=', True)]}"/>
                                 <field name="deadline_date"
                                        groups="benart_work_management.group_work_management_admin"/>
                                 <field name="create_date" readonly="1"/>
-                                <field name="create_uid" readonly="1"  options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
+                                <field name="create_uid" readonly="1"
+                                       options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
                                 <field name="write_date" readonly="1"/>
-                                <field name="write_uid" readonly="1"  options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
+                                <field name="write_uid" readonly="1"
+                                       options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
                                 <field name="hide_deadline_date" invisible="1"/>
+                                <field name="assingnee_id" readonly="1" invisible="1"
+                                       options="{'no_create_edit': True, 'no_open': True, 'no_quick_create': True}, 'no_create': True"/>
+                                <field name="active" readonly="1" invisible="1"/>
                             </group>
                         </group>
                     </sheet>
