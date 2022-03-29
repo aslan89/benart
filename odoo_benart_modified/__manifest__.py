@@ -27,6 +27,7 @@
     'data': [
         'security/certification_group.xml',
         'security/ir.model.access.csv',
+        'data/validity_status_batch.xml',
         'views/hr_certificate_view.xml',
         'views/res_partner_view.xml',
         'views/web.xml',

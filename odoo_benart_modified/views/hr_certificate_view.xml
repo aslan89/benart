@@ -157,7 +157,7 @@
                     <field name="certificate_status"/>
                     <field name="release_date"/>
                     <field name="validity_date"/>
-                    <field name="validity_status"/>
+                    <field name="validity__status"/>
                     <field name="standart_definition"/>
                 </tree>
             </field>
@@ -188,7 +188,7 @@
                             <group string="Dates">
                                 <field name="release_date"/>
                                 <field name="validity_date"/>
-                                <field name="validity_status"/>
+                                <field name="validity__status"/>
                             </group>
 
                         </group>
@@ -270,14 +270,16 @@
                     <filter string="On Hold " name="certificate_status"
                             domain="[('certificate_status', '=', 'onhold')]"/>
 
-                    <filter string="Years to Validity Expire" name="validity_status"
-                            domain="[('validity_status', '=', 'Years to Validity Expire')]"/>
-                    <filter string="Months to Validity Expire" name="validity_status"
-                            domain="[('validity_status', '=', 'Months to Validity Expire')]"/>
-                    <filter string="Weeks to Validity Expire" name="validity_status"
-                            domain="[('validity_status', '=', 'Weeks to Validity Expire')]"/>
-                    <filter string="Days to Validity Expire" name="validity_status"
-                            domain="[('validity_status', '=', 'Days to Validity Expire')]"/>
+<!--                    <filter string="Years to Validity Expire" name="validity__status"-->
+<!--                            domain="[('validity__status', '=', 'years_to_validity_expire')]"/>-->
+<!--                    <filter string="Months to Validity Expire" name="validity__status"-->
+<!--                            domain="[('validity__status', '=', 'months_to_validity_expire')]"/>-->
+<!--                    <filter string="Weeks to Validity Expire" name="validity__status"-->
+<!--                            domain="[('validity__status', '=', 'weeks_to_validity_expire')]"/>-->
+<!--                    <filter string="Days to Validity Expire" name="validity__status"-->
+<!--                            domain="[('validity__status', '=', 'days_to_validity_expire')]"/>-->
+<!--                     <filter string="Expired" name="validity__status"-->
+<!--                            domain="[('validity__status', '=', 'expired')]"/>-->
                 </search>
             </field>
         </record>

@@ -35,26 +35,54 @@ class Certificate(models.Model):
     release_date = fields.Date("Release Date", required=True, track_visibility="onchange")
     validity_date = fields.Date("Validity Date", required=True, track_visibility="onchange")
 
+    validity__status = fields.Selection([
+        ('years_to_validity_expire', 'Years to Validity Expire'),
+        ('months_to_validity_expire', 'Months to Validity Expire'),
+        ('weeks_to_validity_expire', 'Weeks to Validity Expire'),
+        ('days_to_validity_expire', 'Days to Validity Expire'),
+        ('expired', 'Expired'),
+    ], string='Validity Status', store=True, readonly=1,
+        translate=True, compute='_compute_validity__status')
+
     validity_status = fields.Char(String='Validity Status', readonly=1, track_visibility="onchange", translate=True)
 
     active = fields.Boolean('Active', default=True, track_visibility="onchange", translate=True)
 
-    @api.constrains('validity_date')
-    def _compute_validity_status(self):
+    @api.multi
+    @api.depends('validity_date')
+    def _compute_validity__status(self):
+        for i in self:
+            if i.validity_date:
+                rdelta = relativedelta(i.validity_date, date.today())
 
-        if self.validity_date:
-            rdelta = relativedelta(self.validity_date, date.today())
+                if rdelta.years > 0:
+                    i.validity__status = "years_to_validity_expire"
+                elif rdelta.months > 0:
+                    i.validity__status = "months_to_validity_expire"
+                elif rdelta.weeks > 0:
+                    i.validity__status = "weeks_to_validity_expire"
+                elif rdelta.days > 0:
+                    i.validity__status = "days_to_validity_expire"
+                else:
+                    i.validity__status = "expired"
 
-            if rdelta.years > 0:
-                self.write({'validity_status': 'Years to Validity Expire'})
-            elif rdelta.months > 0:
-                self.write({'validity_status': 'Months to Validity Expire'})
-            elif rdelta.weeks > 0:
-                self.write({'validity_status': 'Weeks to Validity Expire'})
-            elif rdelta.days > 0:
-                self.write({'validity_status': 'Days to Validity Expire'})
-            else:
-                self.write({'validity_status': 'Validity Expired'})
+    @api.multi
+    def validity_status_batch(self):
+        certificate_ids = self.env['benart.certificate'].search([('active', '=', True)])
+        for i in certificate_ids:
+            if i.validity_date:
+                rdelta = relativedelta(i.validity_date, date.today())
+
+                if rdelta.years > 0:
+                    i.validity__status = "years_to_validity_expire"
+                elif rdelta.months > 0:
+                    i.validity__status = "months_to_validity_expire"
+                elif rdelta.weeks > 0:
+                    i.validity__status = "weeks_to_validity_expire"
+                elif rdelta.days > 0:
+                    i.validity__status = "days_to_validity_expire"
+                else:
+                    i.validity__status = "expired"
 
 
 class ResPartner(models.Model):
