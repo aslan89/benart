@@ -33,6 +33,7 @@
         'views/res_partner_view.xml',
         'views/web.xml',
         'views/hide_contract.xml',
+        'wizards/views/benart_certificate_wizard.xml',
 
     ],
     'demo': [

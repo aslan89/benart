@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+
+        <act_window id="benart_certificate_wizard_act_window_id"
+                    name="Statü Değiştir"
+                    src_model="benart.certificate"
+                    res_model="benart.certificate.wizard"
+                    view_type="form" view_mode="form"
+                    key2="client_action_multi" target="new"
+                    groups="odoo_benart_modified.group_certification_admin"/>
+
+
+        <record id="benart_certificate_wizard_form_id" model="ir.ui.view">
+            <field name="name">Add Employee History</field>
+            <field name="model">benart.certificate.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Statü Değiştir">
+                    <group>
+                        <field name="certificate_status"
+                               options="{'no_create': True, 'no_open': True,'no_create_edit':True,'no_quick_create': True}"/>
+                        <field name="certificate_ids" readonly="1">
+                            <tree>
+                                <field name="certification_number"/>
+                                <field name="certificate_status"/>
+                                <field name="certification_body_id"/>
+                                <field name="accreditation_id"/>
+                                <field name="record_type_id"/>
+                                <field name="res_partner_id"/>
+                                <field name="certificate_status"/>
+                                <field name="release_date"/>
+                                <field name="validity_date"/>
+                                <field name="validity__status"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button string="Apply" name="action_apply" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
